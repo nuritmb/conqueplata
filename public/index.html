@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>¿Alcanza la plata? · Plan de Gobierno Juntos por el Perú 2026-2031</title>
+<title>¿Con qué plata? · Plan de Gobierno Juntos por el Perú 2026-2031</title>
 <script src="https://cdn.tailwindcss.com"></script>
 <link rel="stylesheet" href="style.css" />
 </head>
@@ -12,12 +12,12 @@
 <header class="border-b border-stone-200 bg-white">
   <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-y-2">
     <div>
-      <h1 class="text-lg font-semibold">¿Alcanza la plata?</h1>
+      <h1 class="text-lg font-semibold">¿Con qué plata?</h1>
       <p class="text-xs text-stone-500">Calculador del Plan de Gobierno · Juntos por el Perú 2026-2031</p>
     </div>
     <nav class="flex flex-wrap gap-2 text-sm">
       <button data-tab="balance" class="tab-btn px-3 py-1.5 rounded bg-stone-900 text-white">El cálculo</button>
-      <button data-tab="inversiones" class="tab-btn px-3 py-1.5 rounded text-stone-700 hover:bg-stone-100">Inversiones de capital</button>
+      <button data-tab="inversiones" class="tab-btn px-3 py-1.5 rounded text-stone-700 hover:bg-stone-100 hidden">Inversiones de capital</button>
       <button data-tab="metodologia" class="tab-btn px-3 py-1.5 rounded text-stone-700 hover:bg-stone-100">Metodología</button>
     </nav>
   </div>
@@ -31,7 +31,7 @@
     <p>
       Muchos se preguntan con qué plata JP va a financiar las reformas que promete. Acá puedes verlo tú mismo.
       En la columna <strong class="text-emerald-700">Ingresos</strong>, elige una o varias fuentes de dinero <em>adicional</em> que el gobierno podría recaudar cada año.
-      En la columna <strong class="text-rose-700">Gastos</strong>, elige uno o varios compromisos de gasto que JP ha propuesto.
+      En la columna <strong class="text-emerald-800">Gastos</strong>, elige uno o varios compromisos de gasto que JP ha propuesto.
       La visualización muestra cómo se comparan ambos montos, junto con cifras referenciales para darte una idea de la escala.
     </p>
   </section>
@@ -76,7 +76,7 @@
           Ingresos: <span id="ingresos-readout">S/ 0</span>
         </div>
         <div>
-          <span class="inline-block w-2 h-2 rounded-full bg-rose-500 align-middle"></span>
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-800 align-middle"></span>
           Gastos: <span id="gastos-readout">S/ 0</span>
         </div>
       </div>
@@ -87,7 +87,7 @@
   <!-- RIGHT (desktop) / 4th (mobile): Gastos -->
   <section class="md:col-span-3 space-y-3 order-4">
     <div class="flex items-baseline justify-between">
-      <h2 class="text-sm font-bold uppercase tracking-wide text-rose-700">Gastos</h2>
+      <h2 class="text-sm font-bold uppercase tracking-wide text-emerald-800">Gastos</h2>
       <span id="gastos-total" class="text-xs text-stone-500 tabular-nums">S/ 0</span>
     </div>
     <div id="gastos-container" class="space-y-3"></div>

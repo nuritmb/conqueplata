@@ -1,4 +1,4 @@
-// ¿Alcanza la plata? — calculador del plan JP
+// ¿Con qué plata? — calculador del plan JP
 // Pure vanilla JS, no framework. Loads items.json, renders sliders/toggles/circles, recomputes on change.
 
 const state = {
@@ -23,7 +23,7 @@ async function init() {
     state.ingresos[i.id] = { valor: 0 };
   });
   data.gastos.forEach(g => {
-    state.gastos[g.id] = { activado: false, rampa: 'año_5' };
+    state.gastos[g.id] = { valor: 0 };  // unified: 0 means off; for sliders, the actual S/ M; for toggles, costo_pleno when activated
   });
 
   renderIngresos();
@@ -119,38 +119,56 @@ function renderGastos() {
     card.innerHTML = renderGastoCard(item);
     container.appendChild(card);
 
-    const checkbox = card.querySelector('input[type=checkbox]');
-    checkbox.addEventListener('change', (e) => {
-      state.gastos[item.id].activado = e.target.checked;
-      updateGastoCard(card, item);
-      recompute();
-    });
-
     if (item.tipo_control === 'toggle_con_rampa') {
-      card.querySelectorAll('.ramp-pill').forEach(pill => {
-        pill.addEventListener('click', () => {
-          state.gastos[item.id].rampa = pill.dataset.rampa;
-          updateGastoCard(card, item);
-          recompute();
-        });
+      const slider = card.querySelector('input[type=range]');
+      slider.addEventListener('input', (e) => {
+        state.gastos[item.id].valor = Number(e.target.value);
+        updateGastoCard(card, item);
+        recompute();
+      });
+    } else {
+      const checkbox = card.querySelector('input[type=checkbox]');
+      checkbox.addEventListener('change', (e) => {
+        state.gastos[item.id].valor = e.target.checked ? item.costo_pleno_millones_pen : 0;
+        updateGastoCard(card, item);
+        recompute();
       });
     }
   });
 }
 
 function renderGastoCard(item) {
-  const costoPleno = item.costo_pleno_millones_pen;
-  let rampaHtml = '';
-  if (item.tipo_control === 'toggle_con_rampa' && item.rampas.length > 0) {
-    rampaHtml = `
-      <div class="ramp-row">
-        ${item.rampas.map(r => `
-          <span class="ramp-pill ${r.id === 'año_5' ? 'selected' : ''}" data-rampa="${r.id}" title="${r.etiqueta}">${r.id.replace('_', ' ')}</span>
-        `).join('')}
-      </div>
-    `;
-  }
+  if (item.tipo_control === 'toggle_con_rampa') return renderGastoCardSlider(item);
+  return renderGastoCardToggle(item);
+}
 
+function renderGastoCardSlider(item) {
+  const max = item.costo_pleno_millones_pen;
+  const baseActualPct = item.base_actual_pct_pbi;
+  const metaPct = item.meta_pct_pbi;
+  const stepSize = Math.max(1, Math.round(max / 200));
+  return `
+    <div class="flex justify-between gap-2">
+      <div class="flex-1">
+        <div class="item-name">${item.nombre}</div>
+        <div class="item-meta">${item.categoria} · gasto actual ${baseActualPct}% PBI · meta JP ${metaPct}% PBI (+S/ ${formatM(max)} M)</div>
+      </div>
+      <div class="item-value text-right">
+        <span class="gasto-actual text-stone-400">S/ 0</span>
+      </div>
+    </div>
+    <input type="range" class="slider-input slider-gasto" min="0" max="${max}" step="${stepSize}" value="0" data-nivel="plausible" />
+    <div class="pbi-progress flex justify-between text-[10px] text-stone-500 mt-1">
+      <span class="pbi-pct-actual">${baseActualPct}% del PBI</span>
+      <span class="pbi-progress-target">0% del camino a ${metaPct}%</span>
+    </div>
+    <div class="alert-area"></div>
+    <button class="source-link" onclick="showDetail('gasto','${item.id}')">ver fuente y detalle</button>
+  `;
+}
+
+function renderGastoCardToggle(item) {
+  const costoPleno = item.costo_pleno_millones_pen;
   return `
     <label class="toggle-row">
       <input type="checkbox" />
@@ -162,7 +180,6 @@ function renderGastoCard(item) {
         <span class="gasto-actual text-stone-400">S/ 0</span>
       </div>
     </label>
-    ${rampaHtml}
     <div class="alert-area"></div>
     <button class="source-link" onclick="showDetail('gasto','${item.id}')">ver fuente y detalle</button>
   `;
@@ -170,50 +187,51 @@ function renderGastoCard(item) {
 
 function updateGastoCard(card, item) {
   const s = state.gastos[item.id];
-  const valor = computeGastoValue(item, s);
-  card.querySelector('.gasto-actual').textContent = 'S/ ' + formatM(valor);
-  card.querySelector('.gasto-actual').classList.toggle('text-stone-400', !s.activado);
-  card.classList.toggle('activo-gasto', s.activado);
+  const valor = s.valor || 0;
+  const max = item.costo_pleno_millones_pen;
+  const pct = max ? (valor / max) * 100 : 0;
 
-  // Update ramp pills selected state
+  card.querySelector('.gasto-actual').textContent = 'S/ ' + formatM(valor);
+  card.querySelector('.gasto-actual').classList.toggle('text-stone-400', valor === 0);
+  card.classList.toggle('activo-gasto', valor > 0);
+
+  // PBI-specific progress display for sliders
   if (item.tipo_control === 'toggle_con_rampa') {
-    card.querySelectorAll('.ramp-pill').forEach(pill => {
-      pill.classList.toggle('selected', pill.dataset.rampa === s.rampa);
-    });
+    const slider = card.querySelector('input[type=range]');
+    slider.style.setProperty('--pct', pct + '%');
+
+    const baseActualPct = item.base_actual_pct_pbi;
+    const metaPct = item.meta_pct_pbi;
+    const gapPct = metaPct - baseActualPct;
+    const currentPct = baseActualPct + (gapPct * pct / 100);
+
+    card.querySelector('.pbi-pct-actual').textContent = `quedaría en ${currentPct.toFixed(2)}% del PBI`;
+    card.querySelector('.pbi-progress-target').textContent = `${Math.round(pct)}% del camino a ${metaPct}%`;
   }
 
-  // Show alert if applicable
+  // Alert (unified: any alert with umbral_pct <= current pct fires)
   const alertArea = card.querySelector('.alert-area');
   alertArea.innerHTML = '';
-  if (s.activado && item.alertas && item.alertas.length > 0) {
-    for (const a of item.alertas) {
-      if (alertConditionMatches(a, item, s)) {
-        alertArea.innerHTML = `
-          <span class="alert-badge ${a.nivel}">${a.nivel}</span>
-          <div class="alert-message">${a.mensaje}</div>
-        `;
-        break;
+  if (valor > 0) {
+    const alert = pickAlertForPct(item.alertas, pct);
+    if (alert) {
+      alertArea.innerHTML = `
+        <span class="alert-badge ${alert.nivel}">${alert.nivel}</span>
+        <div class="alert-message">${alert.mensaje}</div>
+      `;
+      if (item.tipo_control === 'toggle_con_rampa') {
+        card.querySelector('input[type=range]').dataset.nivel = alert.nivel;
       }
+    } else if (item.tipo_control === 'toggle_con_rampa') {
+      card.querySelector('input[type=range]').dataset.nivel = 'plausible';
     }
+  } else if (item.tipo_control === 'toggle_con_rampa') {
+    card.querySelector('input[type=range]').dataset.nivel = 'plausible';
   }
-}
-
-function alertConditionMatches(alert, item, s) {
-  if (!alert.condicion || alert.condicion === 'siempre') return true;
-  // Simple condition parser: "rampa == 'año_5'"
-  const m = alert.condicion.match(/rampa\s*==\s*['"](\w+)['"]/);
-  if (m) return s.rampa === m[1];
-  return true;
 }
 
 function computeGastoValue(item, s) {
-  if (!s.activado) return 0;
-  if (item.tipo_control === 'toggle') return item.costo_pleno_millones_pen;
-  if (item.tipo_control === 'toggle_con_rampa') {
-    const rampa = item.rampas.find(r => r.id === s.rampa);
-    return rampa ? rampa.costo_efectivo_millones_pen : item.costo_pleno_millones_pen;
-  }
-  return 0;
+  return s.valor || 0;
 }
 
 // ============== EPISODICOS TAB ==============
@@ -226,7 +244,7 @@ function renderEpisodicos() {
     card.innerHTML = `
       <div class="flex justify-between gap-2 mb-1">
         <div class="text-sm font-semibold">${item.nombre}</div>
-        <div class="text-xs px-2 py-0.5 rounded ${item.tipo === 'ingreso' ? 'bg-emerald-100 text-emerald-700' : 'bg-rose-100 text-rose-700'}">${item.tipo}</div>
+        <div class="text-xs px-2 py-0.5 rounded ${item.tipo === 'ingreso' ? 'bg-emerald-100 text-emerald-700' : 'bg-emerald-200 text-emerald-900'}">${item.tipo}</div>
       </div>
       <div class="text-xs text-stone-600 mb-2">${item.descripcion || ''}</div>
       <div class="text-sm tabular-nums">
@@ -256,7 +274,7 @@ function recompute() {
   balanceEl.textContent = 'S/ ' + formatM(Math.abs(balance)) + ' M';
   signEl.textContent = balance < 0 ? '−' : (balance > 0 ? '+' : '');
   if (balance < 0) {
-    balanceEl.className = 'text-rose-600';
+    balanceEl.className = 'text-amber-600';
     labelEl.textContent = 'Déficit anual del plan';
   } else if (balance > 0) {
     balanceEl.className = 'text-emerald-600';

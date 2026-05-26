@@ -1,4 +1,4 @@
-# ¿Alcanza la plata?
+# ¿Con qué plata?
 
 Calculador interactivo del balance fiscal del Plan de Gobierno de **Juntos por el Perú 2026-2031**.
 

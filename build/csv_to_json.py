@@ -170,19 +170,22 @@ def build():
                 }
                 for c in contiene_by_gasto.get(row["id"], [])
             ],
-            "alertas": [
-                {
-                    "condicion": a.get("condicion"),
-                    "nivel": a["nivel"],
-                    "color": a["color"],
-                    "mensaje": a["mensaje_plainspoken"],
-                    "fuente": {
-                        "cita": a.get("fuente_cita"),
-                        "url": a.get("fuente_url"),
-                    },
-                }
-                for a in alertas_by_gasto.get(row["id"], [])
-            ],
+            "alertas": sorted(
+                [
+                    {
+                        "umbral_pct": to_number(a.get("umbral_pct")),
+                        "nivel": a["nivel"],
+                        "color": a["color"],
+                        "mensaje": a["mensaje_plainspoken"],
+                        "fuente": {
+                            "cita": a.get("fuente_cita"),
+                            "url": a.get("fuente_url"),
+                        },
+                    }
+                    for a in alertas_by_gasto.get(row["id"], [])
+                ],
+                key=lambda x: x["umbral_pct"] or 0,
+            ),
         }
         gastos.append(item)
 

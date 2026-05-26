@@ -27,8 +27,8 @@ body {
 }
 
 .item-card.activo-gasto {
-  border-color: #f43f5e;
-  box-shadow: 0 0 0 1px #f43f5e;
+  border-color: #065f46;  /* emerald-800 — JP-green family, darker */
+  box-shadow: 0 0 0 1px #065f46;
 }
 
 .item-name {
@@ -83,11 +83,16 @@ body {
   border: 2px solid white;
 }
 
-/* Slider tracks tinted by alert level */
+/* Slider tracks tinted by alert level (default = ingresos: emerald-500) */
 .slider-input[data-nivel="plausible"] { background: linear-gradient(to right, #10b981 0%, #10b981 var(--pct,0%), #e7e5e4 var(--pct,0%)); }
 .slider-input[data-nivel="ambicioso"] { background: linear-gradient(to right, #f59e0b 0%, #f59e0b var(--pct,0%), #e7e5e4 var(--pct,0%)); }
 .slider-input[data-nivel="improbable"] { background: linear-gradient(to right, #ea580c 0%, #ea580c var(--pct,0%), #e7e5e4 var(--pct,0%)); }
 .slider-input[data-nivel="irreal"] { background: linear-gradient(to right, #dc2626 0%, #dc2626 var(--pct,0%), #e7e5e4 var(--pct,0%)); }
+
+/* Gastos sliders: same alert color scheme but default ("plausible") uses emerald-800 instead of emerald-500 */
+.slider-input.slider-gasto[data-nivel="plausible"] { background: linear-gradient(to right, #065f46 0%, #065f46 var(--pct,0%), #e7e5e4 var(--pct,0%)); }
+.slider-input.slider-gasto::-webkit-slider-thumb { background: #065f46; }
+.slider-input.slider-gasto::-moz-range-thumb { background: #065f46; }
 
 /* Alert badge */
 .alert-badge {
@@ -125,30 +130,10 @@ body {
   margin-top: 3px;
   width: 14px;
   height: 14px;
-  accent-color: #f43f5e;
+  accent-color: #065f46;  /* emerald-800 */
 }
 
-.ramp-row {
-  display: flex;
-  gap: 4px;
-  margin-top: 8px;
-  font-size: 0.7rem;
-}
-
-.ramp-pill {
-  padding: 3px 8px;
-  border: 1px solid #e7e5e4;
-  border-radius: 999px;
-  cursor: pointer;
-  background: white;
-  color: #57534e;
-}
-
-.ramp-pill.selected {
-  background: #f43f5e;
-  color: white;
-  border-color: #f43f5e;
-}
+/* (Ramp pills removed — PBI items now use a continuous slider instead.) */
 
 /* Source link */
 .source-link {
@@ -225,7 +210,7 @@ body {
 }
 
 .balance-circle-gasto.is-hovered {
-  fill: rgba(244, 63, 94, 0.36);
+  fill: rgba(6, 95, 70, 0.36);
 }
 
 .balance-circle-ingreso {
@@ -238,8 +223,8 @@ body {
 }
 
 .balance-circle-gasto {
-  fill: rgba(244, 63, 94, 0.22);
-  stroke: #f43f5e;
+  fill: rgba(6, 95, 70, 0.22);   /* emerald-800 with alpha */
+  stroke: #065f46;
   stroke-width: 2;
   transition: r 280ms ease;
   pointer-events: stroke;
@@ -254,5 +239,5 @@ body {
   padding: 12px;
 }
 
-.episodico-card.gasto { border-left-color: #f43f5e; }
+.episodico-card.gasto { border-left-color: #065f46; }
 .episodico-card.ingreso { border-left-color: #10b981; }

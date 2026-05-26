@@ -557,23 +557,33 @@
       ],
       "alertas": [
         {
-          "condicion": "rampa == 'año_5'",
+          "umbral_pct": 50.0,
           "nivel": "ambicioso",
           "color": "amarillo",
-          "mensaje": "Solo Cuba (~12%) y Uruguay (~9%) superan el 8% del PBI en salud en América Latina. Perú duplicaría su gasto sanitario actual de un golpe.",
+          "mensaje": "A medio camino ya estarías por encima del gasto en salud de Argentina, Brasil y Colombia.",
           "fuente": {
             "cita": "OMS Global Health Expenditure Database 2024",
             "url": "https://apps.who.int/nha/database"
           }
         },
         {
-          "condicion": "rampa == 'año_5'",
+          "umbral_pct": 80.0,
           "nivel": "improbable",
           "color": "naranja",
           "mensaje": "Para hacer útil ese gasto hay que sumar ~75,000 médicos en 5 años. Perú gradúa ~4,000 al año.",
           "fuente": {
             "cita": "MINSA Repositorio Único de Información en Salud",
             "url": "https://www.minsa.gob.pe/reunis/"
+          }
+        },
+        {
+          "umbral_pct": 95.0,
+          "nivel": "improbable",
+          "color": "naranja",
+          "mensaje": "Solo Cuba (~12%) y Uruguay (~9%) superan el 8% del PBI en salud en América Latina. Perú duplicaría su gasto sanitario actual de un golpe.",
+          "fuente": {
+            "cita": "OMS Global Health Expenditure Database 2024",
+            "url": "https://apps.who.int/nha/database"
           }
         }
       ]
@@ -736,10 +746,20 @@
       ],
       "alertas": [
         {
-          "condicion": "rampa == 'año_5'",
+          "umbral_pct": 50.0,
           "nivel": "ambicioso",
           "color": "amarillo",
-          "mensaje": "Llegar a 6% PBI pondría a Perú a la altura de Bolivia (8%) y por encima de Chile (5%). Significaría salto de 1.7 puntos PBI — la última vez que el país aumentó la inversión educativa en esa magnitud fue durante el primer gobierno de García (1985-90), revirtiéndose después.",
+          "mensaje": "A medio camino ya estás cerca de la media regional (~5%). Trayectoria realista si se sostiene 5 años.",
+          "fuente": {
+            "cita": "UNESCO Global Education Monitoring 2024",
+            "url": "https://www.unesco.org/gem-report/en"
+          }
+        },
+        {
+          "umbral_pct": 90.0,
+          "nivel": "improbable",
+          "color": "naranja",
+          "mensaje": "Llegar a 6% PBI pondría a Perú a la altura de Bolivia (8%) y por encima de Chile (5%). Salto de 1.7 puntos PBI — la última vez que el país aumentó la inversión educativa en esa magnitud fue durante el primer gobierno de García (1985-90), revirtiéndose después.",
           "fuente": {
             "cita": "UNESCO Global Education Monitoring 2024",
             "url": "https://www.unesco.org/gem-report/en"
@@ -833,10 +853,10 @@
       ],
       "alertas": [
         {
-          "condicion": "rampa == 'año_5'",
+          "umbral_pct": 80.0,
           "nivel": "plausible",
           "color": "verde",
-          "mensaje": "Duplicar el gasto en niñez es factible — Colombia y Chile ya están en niveles cercanos. Es probablemente el envelope más realista del plan.",
+          "mensaje": "Duplicar el gasto en niñez es factible — Colombia (0.8%) y Chile (1.2%) ya están en niveles cercanos. Probablemente el envelope más realista del plan.",
           "fuente": {
             "cita": "CEPAL Panorama Social de América Latina 2024",
             "url": "https://www.cepal.org/"
@@ -921,9 +941,19 @@
       ],
       "alertas": [
         {
-          "condicion": "rampa == 'año_5'",
+          "umbral_pct": 50.0,
           "nivel": "ambicioso",
           "color": "amarillo",
+          "mensaje": "A medio camino estás en ~0.33% PBI — aún por debajo del promedio latinoamericano (0.75%).",
+          "fuente": {
+            "cita": "OCDE Main Science and Technology Indicators 2024",
+            "url": "https://www.oecd.org/sti/msti.htm"
+          }
+        },
+        {
+          "umbral_pct": 90.0,
+          "nivel": "improbable",
+          "color": "naranja",
           "mensaje": "Triplicar el gasto en I+D en 5 años no ha ocurrido en ningún país de la región. Corea del Sur tardó 20 años en pasar de 1% a 4%. Perú parte de un nivel mucho más bajo (0.15%).",
           "fuente": {
             "cita": "OCDE Main Science and Technology Indicators 2024",
@@ -978,7 +1008,7 @@
       ],
       "alertas": [
         {
-          "condicion": "siempre",
+          "umbral_pct": 0.0,
           "nivel": "plausible",
           "color": "verde",
           "mensaje": "100,000 plazas equivale a duplicar el tamaño actual del servicio militar voluntario. Costo modesto en relación a otros items.",
@@ -1053,7 +1083,7 @@
       ],
       "alertas": [
         {
-          "condicion": "siempre",
+          "umbral_pct": 0.0,
           "nivel": "plausible",
           "color": "verde",
           "mensaje": "170,000 becas adicionales es ambicioso pero realista. Beca 18 ya entrega ~30,000/año.",

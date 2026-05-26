@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>¿Alcanza la plata? · Plan de Gobierno Juntos por el Perú 2026-2031</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body class="bg-stone-50 text-stone-900 font-sans antialiased">
+
+<header class="border-b border-stone-200 bg-white">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div>
+      <h1 class="text-lg font-semibold">¿Alcanza la plata?</h1>
+      <p class="text-xs text-stone-500">Calculador del Plan de Gobierno · Juntos por el Perú 2026-2031</p>
+    </div>
+    <nav class="flex gap-2 text-sm">
+      <button data-tab="balance" class="tab-btn px-3 py-1.5 rounded bg-stone-900 text-white">Balance anual</button>
+      <button data-tab="inversiones" class="tab-btn px-3 py-1.5 rounded text-stone-700 hover:bg-stone-100">Inversiones de capital</button>
+      <button data-tab="metodologia" class="tab-btn px-3 py-1.5 rounded text-stone-700 hover:bg-stone-100">Metodología</button>
+    </nav>
+  </div>
+</header>
+
+<!-- ============ TAB: BALANCE ANUAL ============ -->
+<main id="tab-balance" class="tab-content max-w-7xl mx-auto px-4 py-6 grid grid-cols-12 gap-4">
+
+  <!-- LEFT: Ingresos -->
+  <section class="col-span-3 space-y-3">
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-sm font-bold uppercase tracking-wide text-emerald-700">Ingresos</h2>
+      <span id="ingresos-total" class="text-xs text-stone-500 tabular-nums">S/ 0</span>
+    </div>
+    <div id="ingresos-container" class="space-y-3"></div>
+  </section>
+
+  <!-- CENTER: Visualization -->
+  <section class="col-span-6 flex flex-col items-center">
+    <div class="w-full relative" id="circles-container">
+      <div id="circle-tooltip" class="absolute top-2 left-1/2 -translate-x-1/2 z-10 bg-stone-900/90 text-white text-xs px-3 py-1.5 rounded-md opacity-0 pointer-events-none transition-opacity duration-150 whitespace-nowrap shadow-lg">
+        <span id="tooltip-name" class="font-semibold"></span>
+        <span class="text-stone-300 mx-1">·</span>
+        <span id="tooltip-value" class="tabular-nums"></span>
+        <div id="tooltip-sub" class="text-[10px] text-stone-300 font-normal mt-0.5"></div>
+      </div>
+      <svg id="circles-svg" viewBox="0 0 600 600" class="w-full h-auto">
+        <!-- Background reference circles (rendered first, behind) -->
+        <g id="references-layer"></g>
+        <!-- Central balance circles -->
+        <g id="balance-layer"></g>
+        <!-- Labels on top -->
+        <g id="labels-layer"></g>
+      </svg>
+    </div>
+    <div id="balance-readout" class="mt-2 w-full text-center space-y-1">
+      <div class="text-2xl font-bold tabular-nums">
+        <span id="balance-sign"></span><span id="balance-amount">S/ 0</span>
+      </div>
+      <div class="text-xs text-stone-500" id="balance-label">Balance neto del plan</div>
+      <div class="flex justify-center gap-6 text-sm tabular-nums mt-2">
+        <div>
+          <span class="inline-block w-2 h-2 rounded-full bg-emerald-500 align-middle"></span>
+          Ingresos: <span id="ingresos-readout">S/ 0</span>
+        </div>
+        <div>
+          <span class="inline-block w-2 h-2 rounded-full bg-rose-500 align-middle"></span>
+          Gastos: <span id="gastos-readout">S/ 0</span>
+        </div>
+      </div>
+    </div>
+    <div id="references-legend" class="w-full mt-4 text-xs"></div>
+  </section>
+
+  <!-- RIGHT: Gastos -->
+  <section class="col-span-3 space-y-3">
+    <div class="flex items-baseline justify-between">
+      <h2 class="text-sm font-bold uppercase tracking-wide text-rose-700">Gastos</h2>
+      <span id="gastos-total" class="text-xs text-stone-500 tabular-nums">S/ 0</span>
+    </div>
+    <div id="gastos-container" class="space-y-3"></div>
+  </section>
+
+</main>
+
+<!-- ============ TAB: INVERSIONES DE CAPITAL ============ -->
+<main id="tab-inversiones" class="tab-content max-w-7xl mx-auto px-4 py-6 hidden">
+  <div class="prose max-w-none mb-4">
+    <h2 class="text-lg font-semibold">Inversiones de capital y eventos extraordinarios</h2>
+    <p class="text-sm text-stone-600">
+      Estos items no se incluyen en el balance anual porque son inversiones one-time o episódicas.
+      Se asume que se financian con deuda nueva, windfall taxes o cooperación internacional —
+      no con tributación recurrente.
+    </p>
+  </div>
+  <div id="episodicos-container" class="grid grid-cols-1 md:grid-cols-2 gap-3"></div>
+</main>
+
+<!-- ============ TAB: METODOLOGÍA ============ -->
+<main id="tab-metodologia" class="tab-content max-w-3xl mx-auto px-4 py-6 hidden prose">
+  <h2 class="text-lg font-semibold mb-3">Metodología</h2>
+  <p class="text-sm text-stone-600 mb-4">
+    Cada cifra del calculador es auditable. Para la documentación completa, ver
+    <a href="metodologia.md" class="text-emerald-700 underline">metodologia.md</a>
+    en el repositorio.
+  </p>
+  <div id="metodologia-summary" class="text-sm space-y-3 text-stone-700">
+    <p><strong>PBI 2023 (base):</strong> S/ 999,195 millones (MEF / BCRP).</p>
+    <p><strong>Presión tributaria actual:</strong> 19.7% del PBI (Gobierno General incluyendo contribuciones sociales).</p>
+    <p><strong>Meta JP:</strong> 25% del PBI — interpretada como Ingresos del Gobierno General. Gap ≈ S/ 53,000 M/año.</p>
+    <p><strong>Convención:</strong> todas las cifras en soles de 2023.</p>
+    <p><strong>Cifras del plan:</strong> tomadas del documento oficial del Plan de Gobierno JP 2026-2031 firmado el 23/12/2025.</p>
+  </div>
+</main>
+
+<footer class="border-t border-stone-200 mt-12 bg-white">
+  <div class="max-w-7xl mx-auto px-4 py-4 text-xs text-stone-500 flex justify-between">
+    <span>Datos hasta mayo 2026. Cifras en soles de 2023.</span>
+    <span>Fuentes auditables en cada item · <a href="metodologia.md" class="underline">metodología</a></span>
+  </div>
+</footer>
+
+<!-- Detail popup -->
+<div id="detail-popup" class="hidden fixed inset-0 bg-stone-900/40 z-50 flex items-center justify-center p-4" onclick="if(event.target===this)closeDetail()">
+  <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full max-h-[80vh] overflow-y-auto p-6" id="detail-content"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

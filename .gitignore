@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.python-version
+
+# Editors
+.vscode/
+.idea/
+*.swp
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Vercel / Netlify
+.vercel/
+.netlify/
+
+# Node (just in case anyone runs a tool that creates these)
+node_modules/
+
+# Temporary files
+*.tmp
+*.log

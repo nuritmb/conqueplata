@@ -1,0 +1,13 @@
+item_id,rampa_id,etiqueta,factor,costo_efectivo_millones_pen,nota
+salud_8pbi,año_1,"Año 1 (rampa inicial — 20% del gap)",0.20,9400,"~3.3% → 4.2% PBI"
+salud_8pbi,año_3,"Año 3 (rampa media — 60% del gap)",0.60,28200,"~3.3% → 6.1% PBI"
+salud_8pbi,año_5,"Año 5 (meta plena — 100% del gap)",1.00,47000,"3.3% → 8.0% PBI"
+educacion_6pbi,año_1,"Año 1 (rampa inicial — 20% del gap)",0.20,3520,"~4.24% → 4.6% PBI"
+educacion_6pbi,año_3,"Año 3 (rampa media — 60% del gap)",0.60,10560,"~4.24% → 5.3% PBI"
+educacion_6pbi,año_5,"Año 5 (meta plena — 100% del gap)",1.00,17600,"4.24% → 6.0% PBI"
+proteccion_infantil_1pbi,año_1,"Año 1 (rampa inicial — 20% del gap)",0.20,1000,"~0.5% → 0.6% PBI"
+proteccion_infantil_1pbi,año_3,"Año 3 (rampa media — 60% del gap)",0.60,3000,"~0.5% → 0.8% PBI"
+proteccion_infantil_1pbi,año_5,"Año 5 (meta plena — 100% del gap)",1.00,5000,"0.5% → 1.0% PBI"
+id_05pbi,año_1,"Año 1 (rampa inicial — 20% del gap)",0.20,700,"~0.15% → 0.22% PBI"
+id_05pbi,año_3,"Año 3 (rampa media — 60% del gap)",0.60,2100,"~0.15% → 0.36% PBI"
+id_05pbi,año_5,"Año 5 (meta plena — 100% del gap)",1.00,3500,"0.15% → 0.5% PBI"

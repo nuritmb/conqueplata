@@ -1,0 +1,1664 @@
+{
+  "version": "1.0",
+  "baseline": {
+    "pbi_2023_millones_pen": 999195,
+    "tipo_cambio_promedio_2023": 3.75
+  },
+  "ingresos": [
+    {
+      "id": "evasion_total",
+      "categoria": "Tributario",
+      "nombre": "Reducir evasión tributaria",
+      "descripcion_corta": "Cerrar la brecha entre lo que SUNAT recauda y el potencial teórico. Incluye evasión, elusión, morosidad e incumplimiento involuntario.",
+      "tipo_control": "slider",
+      "maximo_millones_pen": 99000.0,
+      "fuente": {
+        "cita": "OCDE 2025 — Estudios Económicos de Perú; citando MEF 2025: evasión = 10% del PBI en 2023",
+        "url": "https://www.oecd.org/es/publications/estudios-economicos-de-la-ocde-peru-2025_626594d0-es.html"
+      },
+      "notas": "Compuesto por IGV (S/ 34,669 M per SUNAT 2024) + IR (~S/ 64,331 M derivado). Ver componentes en archivo 03.",
+      "componentes": [
+        {
+          "nombre": "Evasión del IGV",
+          "monto_millones_pen": 34669.0,
+          "porcentaje_del_total": 35.0,
+          "fuente": {
+            "cita": "SUNAT Informe N° 000035-2024 (junio 2024): incumplimiento IGV 2023 = S/ 34,669 M = 3.5% PBI",
+            "url": "https://www.sunat.gob.pe/"
+          }
+        },
+        {
+          "nombre": "Evasión del Impuesto a la Renta",
+          "monto_millones_pen": 64331.0,
+          "porcentaje_del_total": 65.0,
+          "fuente": {
+            "cita": "Derivado: total OCDE/MEF (10% PBI) menos IGV SUNAT. Incumplimiento del IR Tercera Categoría estimado en 40.5%.",
+            "url": "https://www.oecd.org/es/publications/estudios-economicos-de-la-ocde-peru-2025_626594d0-es.html"
+          }
+        }
+      ],
+      "alertas": [
+        {
+          "umbral_pct": 15.0,
+          "nivel": "plausible",
+          "color": "verde",
+          "mensaje": "Plausible. Reformas administrativas serias del SUNAT podrían recuperar entre 10-20% de la brecha en 5-10 años — la ruta que tomó Colombia entre 2010 y 2020.",
+          "fuente": {
+            "cita": "OCDE Estudios Económicos de Perú 2025, sección 1.5.1",
+            "url": "https://www.oecd.org/es/publications/estudios-economicos-de-la-ocde-peru-2025_626594d0-es.html"
+          }
+        },
+        {
+          "umbral_pct": 30.0,
+          "nivel": "ambicioso",
+          "color": "amarillo",
+          "mensaje": "Esto significaría que Perú, en 5 años, haga lo que a Chile le tomó 15.",
+          "fuente": {
+            "cita": "FMI 2022 Propuestas para la reforma tributaria; trayectoria SII chileno 1990-2005",
+            "url": null
+          }
+        },
+        {
+          "umbral_pct": 60.0,
+          "nivel": "improbable",
+          "color": "naranja",
+          "mensaje": "Ningún país latinoamericano ha cerrado más del 50% de su brecha de evasión en un solo período presidencial. Brasil lleva 30 años intentándolo.",
+          "fuente": {
+            "cita": "CIAT/BID Recaudar no basta (2012); seguimiento 1990-2023",
+            "url": "https://publications.iadb.org/publications/spanish/document/Recaudar-no-basta-Los-impuestos-como-instrumento-de-desarrollo.pdf"
+          }
+        },
+        {
+          "umbral_pct": 90.0,
+          "nivel": "irreal",
+          "color": "rojo",
+          "mensaje": "Máximo teórico. Recuperarlo todo implica eliminar la informalidad — el 75.7% de la PEA peruana. No ha ocurrido en ningún país.",
+          "fuente": {
+            "cita": "MTPE Observatorio de la Formalización Laboral 2022 (citado en Plan JP p. 34)",
+            "url": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "exoneraciones_regresivas",
+      "categoria": "Tributario",
+      "nombre": "Eliminar exoneraciones tributarias regresivas",
+      "descripcion_corta": "JP propone eliminar el 100% de las exoneraciones regresivas. Se asume que ~70% del gasto tributario total cae en esa categoría (excluye CTS y beneficios laborales constitucionalmente protegidos).",
+      "tipo_control": "slider",
+      "maximo_millones_pen": 20000.0,
+      "fuente": {
+        "cita": "MEF Marco Macroeconómico Multianual 2026-2029: gasto tributario 2026 = S/ 26,350 M (2.16% del PBI)",
+        "url": "https://gestion.pe/economia/lo-que-dejaria-de-recaudar-el-estado-por-exoneraciones-y-otros-gastos-tributarios-en-el-2025-mmm-mef-sunat-beneficios-tributarios-noticia/"
+      },
+      "notas": "El plan no especifica qué exoneraciones son 'regresivas'. Las principales (CTS, agro, Amazonía, educación) tienen defensores políticos fuertes.",
+      "componentes": [
+        {
+          "nombre": "IGV (agro",
+          "monto_millones_pen": null,
+          "porcentaje_del_total": null,
+          "fuente": {
+            "cita": "14800",
+            "url": "74"
+          }
+        },
+        {
+          "nombre": "Impuesto a la Renta (CTS protegido aparte)",
+          "monto_millones_pen": 3360.0,
+          "porcentaje_del_total": 17.0,
+          "fuente": {
+            "cita": "MEF MMM 2026-2029: gasto tributario IR = 17% del total",
+            "url": null
+          }
+        },
+        {
+          "nombre": "Ad valorem y otros",
+          "monto_millones_pen": 980.0,
+          "porcentaje_del_total": 5.0,
+          "fuente": {
+            "cita": "MEF MMM 2026-2029: gasto tributario ad valorem = 5% del total",
+            "url": null
+          }
+        },
+        {
+          "nombre": "Otros mecanismos",
+          "monto_millones_pen": 860.0,
+          "porcentaje_del_total": 4.0,
+          "fuente": {
+            "cita": "MEF MMM 2026-2029",
+            "url": null
+          }
+        }
+      ],
+      "alertas": [
+        {
+          "umbral_pct": 40.0,
+          "nivel": "plausible",
+          "color": "verde",
+          "mensaje": "Factible si hay voluntad política. El 50% de los gastos tributarios son exoneraciones (no derechos adquiridos) y podrían modificarse por ley ordinaria.",
+          "fuente": {
+            "cita": "MEF Marco Macroeconómico Multianual 2026-2029",
+            "url": null
+          }
+        },
+        {
+          "umbral_pct": 80.0,
+          "nivel": "improbable",
+          "color": "naranja",
+          "mensaje": "Eliminar el 80% choca con los regímenes especiales agrario, Amazónico y financiero. Cada uno tiene defensores en el Congreso.",
+          "fuente": {
+            "cita": "MEF Marco Macroeconómico Multianual 2026-2029",
+            "url": null
+          }
+        },
+        {
+          "umbral_pct": 100.0,
+          "nivel": "irreal",
+          "color": "rojo",
+          "mensaje": "Eliminar el 100% incluye CTS y beneficios laborales protegidos constitucionalmente. No es jurídicamente posible sin reforma constitucional.",
+          "fuente": {
+            "cita": "Constitución del Perú Art. 24; revisión jurisprudencia TC",
+            "url": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "grandes_fortunas",
+      "categoria": "Tributario",
+      "nombre": "Impuesto a las grandes fortunas",
+      "descripcion_corta": "JP propone un impuesto a las grandes fortunas sin especificar tasa ni umbral. Estimación basada en tasa de 1% sobre patrimonios netos >US$ 30M, con descuento por fuga de capital.",
+      "tipo_control": "slider",
+      "maximo_millones_pen": 4000.0,
+      "fuente": {
+        "cita": "Estimación propia basada en Capgemini World Wealth Report 2024 (LatAm HNW = US$ 9.2T) y comparación con Aporte Solidario argentino 2020-2021",
+        "url": "https://www.capgemini.com/insights/research-library/world-wealth-report-2024/"
+      },
+      "notas": "Fuga de capital reduce recaudación 30-50% en práctica. Perú tiene 1-4 billonarios Forbes y ~miles de UHNW según datos disponibles.",
+      "componentes": [],
+      "alertas": [
+        {
+          "umbral_pct": 50.0,
+          "nivel": "plausible",
+          "color": "verde",
+          "mensaje": "Hacedero. Argentina implementó un Aporte Solidario similar en 2020 que recaudó ~0.5% del PBI en un año.",
+          "fuente": {
+            "cita": "AFIP Argentina, Aporte Solidario y Extraordinario Ley 27.605",
+            "url": "https://www.argentina.gob.ar/normativa/nacional/ley-27605"
+          }
+        },
+        {
+          "umbral_pct": 100.0,
+          "nivel": "improbable",
+          "color": "naranja",
+          "mensaje": "Llegar al máximo asume cero fuga de capital. En Argentina la fuga reportada redujo la recaudación efectiva ~30%. En Francia (1988-2017), el ISF perdió valor año a año por emigración fiscal hasta ser eliminado.",
+          "fuente": {
+            "cita": "Conseil des prélèvements obligatoires Francia 2018; AFIP Argentina",
+            "url": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "renegociar_cet",
+      "categoria": "Tributario",
+      "nombre": "Renegociar contratos de estabilidad tributaria",
+      "descripcion_corta": "Contratos firmados con grandes mineras y otras inversiones que congelan tasas y exoneran reformas. JP propone renegociarlos o no renovarlos al vencer.",
+      "tipo_control": "slider",
+      "maximo_millones_pen": 1500.0,
+      "fuente": {
+        "cita": "Estimaciones CooperAcción/Red Muqui sobre costo fiscal anual de los CET activos en sector minero",
+        "url": "https://cooperaccion.org.pe/"
+      },
+      "notas": "Alto riesgo de arbitraje internacional CIADI. Perú perdió US$ 111M en arbitrajes 2022-2023 según el plan JP (p. 18).",
+      "componentes": [],
+      "alertas": [
+        {
+          "umbral_pct": 40.0,
+          "nivel": "plausible",
+          "color": "verde",
+          "mensaje": "Posible vía no renovación al vencer (varios CET expiran 2026-2030). Bajo riesgo de arbitraje si no se rompen contratos vigentes.",
+          "fuente": {
+            "cita": "CooperAcción análisis CET sector minero",
+            "url": "https://cooperaccion.org.pe/"
+          }
+        },
+        {
+          "umbral_pct": 100.0,
+          "nivel": "improbable",
+          "color": "naranja",
+          "mensaje": "Renegociar CET vigentes detonaría arbitrajes en CIADI. Perú perdió US$ 111M en 2022-2023 en casos similares. La factura legal podría superar lo recaudado.",
+          "fuente": {
+            "cita": "Plan JP p. 18 cita pérdidas CIADI 2022-2023",
+            "url": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "mineria_mas40",
+      "categoria": "Recursos naturales",
+      "nombre": "Incrementar 40% los ingresos mineros",
+      "descripcion_corta": "JP propone un nuevo esquema fiscal que incremente la recaudación del sector minero en 40% sobre el nivel actual. Incluye eventual impuesto a sobreganancias y revisión del régimen vigente.",
+      "tipo_control": "slider",
+      "maximo_millones_pen": 7350.0,
+      "fuente": {
+        "cita": "Plan JP p. 70 (Resumen, sección 5: Gran minería). Base: SUNAT/Comex 2024 = S/ 18,384 M total fiscal minero",
+        "url": "https://www.comexperu.org.pe/articulo/mineria-en-2024-mayor-recaudacion-e-inversion-y-desafios-por-superar"
+      },
+      "notas": "Incluye potencial nuevo impuesto a sobreganancias. El IEM actual capturó S/ 4,641 M en 2021 (año pico de precios).",
+      "componentes": [
+        {
+          "nombre": "Impuesto a la Renta minero",
+          "monto_millones_pen": 10632.0,
+          "porcentaje_del_total": 58.0,
+          "fuente": {
+            "cita": "Comex Perú/SUNAT 2024: 58% del fiscal minero corresponde a IR de 3ra categoría",
+            "url": "https://www.comexperu.org.pe/articulo/mineria-en-2024-mayor-recaudacion-e-inversion-y-desafios-por-superar"
+          }
+        },
+        {
+          "nombre": "Regalías mineras",
+          "monto_millones_pen": 2187.0,
+          "porcentaje_del_total": 12.0,
+          "fuente": {
+            "cita": "SUNAT 2024",
+            "url": null
+          }
+        },
+        {
+          "nombre": "IEM (Impuesto Especial a la Minería)",
+          "monto_millones_pen": 1233.0,
+          "porcentaje_del_total": 7.0,
+          "fuente": {
+            "cita": "MEF Análisis del Rendimiento de los Tributos 2023",
+            "url": null
+          }
+        },
+        {
+          "nombre": "GEM (Gravamen Especial a la Minería)",
+          "monto_millones_pen": 56.0,
+          "porcentaje_del_total": 0.3,
+          "fuente": {
+            "cita": "MEF Análisis del Rendimiento de los Tributos 2023",
+            "url": null
+          }
+        },
+        {
+          "nombre": "Otros (NRM y derechos de vigencia)",
+          "monto_millones_pen": 4276.0,
+          "porcentaje_del_total": 23.0,
+          "fuente": {
+            "cita": "SUNAT 2024",
+            "url": null
+          }
+        }
+      ],
+      "alertas": [
+        {
+          "umbral_pct": 50.0,
+          "nivel": "plausible",
+          "color": "verde",
+          "mensaje": "Realista si los precios del cobre y oro se mantienen altos. En 2021 — año de precios récord — la minería contribuyó S/ 4,641 M solo en IEM, ~25% por encima de niveles normales.",
+          "fuente": {
+            "cita": "MEF Análisis del Rendimiento de los Tributos 2023",
+            "url": "https://www.mef.gob.pe/"
+          }
+        },
+        {
+          "umbral_pct": 100.0,
+          "nivel": "improbable",
+          "color": "naranja",
+          "mensaje": "Sostener +40% año tras año requiere precios altos permanentes Y eliminar los CET de las grandes mineras. La combinación es históricamente excepcional.",
+          "fuente": {
+            "cita": "BCRP series de precios minerales 2000-2024",
+            "url": "https://estadisticas.bcrp.gob.pe/"
+          }
+        }
+      ]
+    },
+    {
+      "id": "regalias_mas20",
+      "categoria": "Recursos naturales",
+      "nombre": "Incrementar 20% las regalías minero-energéticas",
+      "descripcion_corta": "Aumento del 20% sobre regalías mineras (Ley 28258) y nuevas regalías a hidrocarburos.",
+      "tipo_control": "slider",
+      "maximo_millones_pen": 900.0,
+      "fuente": {
+        "cita": "Plan JP p. 68 (Resumen, dimensión económica 2.2). Base: regalías mineras 2024 = S/ 2,187 M + estimado energético ~S/ 2,300 M",
+        "url": "https://www.comexperu.org.pe/articulo/mineria-en-2024-mayor-recaudacion-e-inversion-y-desafios-por-superar"
+      },
+      "notas": "Posible overlap con mineria_mas40 — el plan los menciona como objetivos separados en el resumen.",
+      "componentes": [
+        {
+          "nombre": "Regalías mineras",
+          "monto_millones_pen": 2187.0,
+          "porcentaje_del_total": 49.0,
+          "fuente": {
+            "cita": "SUNAT 2024",
+            "url": null
+          }
+        },
+        {
+          "nombre": "Regalías hidrocarburos",
+          "monto_millones_pen": 2300.0,
+          "porcentaje_del_total": 51.0,
+          "fuente": {
+            "cita": "Estimado a partir de transferencias canon gas Camisea (Perúpetro)",
+            "url": null
+          }
+        }
+      ],
+      "alertas": [
+        {
+          "umbral_pct": 100.0,
+          "nivel": "plausible",
+          "color": "verde",
+          "mensaje": "Cambio normativo simple. La tasa de regalía minera está en la Ley 28258 y puede modificarse por ley ordinaria del Congreso.",
+          "fuente": {
+            "cita": "Ley 28258 Regalía Minera",
+            "url": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "canon_hidrico",
+      "categoria": "Recursos naturales",
+      "nombre": "Canon hídrico",
+      "descripcion_corta": "Cobro por uso de agua a sectores que pagan tarifas irrisorias hoy. Minería paga US$ 0.101/m³ y obtiene US$ 120/m³; agroexportación paga US$ 0.001/m³ y obtiene US$ 12.24/m³.",
+      "tipo_control": "slider",
+      "maximo_millones_pen": 1000.0,
+      "fuente": {
+        "cita": "Plan JP p. 73 (Resumen): 'mil millones anuales recaudados por canon hídrico'. Ley 31720 (2023) creó marco legal.",
+        "url": "https://www.actualidadambiental.pe/opinion-cinco-puntos-a-considerar-sobre-la-propuesta-para-una-ley-de-canon-hidrico/"
+      },
+      "notas": "Marco legal ya existe. Falta reglamentación y cobro efectivo.",
+      "componentes": [],
+      "alertas": [
+        {
+          "umbral_pct": 100.0,
+          "nivel": "plausible",
+          "color": "verde",
+          "mensaje": "Factible. El marco legal ya existe (Ley 31720, 2023). Solo falta reglamentación y cobro efectivo. La meta de S/ 1,000 M anuales es modesta dada la rentabilidad del agua para minería.",
+          "fuente": {
+            "cita": "Ley 31720 Canon Hídrico (2023); Plan JP p. 44",
+            "url": null
+          }
+        }
+      ]
+    }
+  ],
+  "gastos": [
+    {
+      "id": "salud_8pbi",
+      "categoria": "Salud",
+      "nombre": "Salud al 8% del PBI",
+      "descripcion_corta": "JP propone elevar el gasto público en salud desde 3.3% (actual) hasta 8% del PBI, incluyendo infraestructura, personal e insumos.",
+      "tipo_control": "toggle_con_rampa",
+      "costo_pleno_millones_pen": 47000.0,
+      "base_actual_pct_pbi": 3.3,
+      "meta_pct_pbi": 8.0,
+      "fuente": {
+        "cita": "Plan JP p. 57 (Resumen, dimensión social 1): '8% del PBI destinado a salud'",
+        "url": null
+      },
+      "notas": "Sobre PBI 2023 = S/ 999,195 M; gap 4.7 puntos = S/ 46,962 M. Solo Cuba y Uruguay superan 6% en LatAm.",
+      "rampas": [
+        {
+          "id": "año_1",
+          "etiqueta": "Año 1 (rampa inicial — 20% del gap)",
+          "factor": 0.2,
+          "costo_efectivo_millones_pen": 9400.0,
+          "nota": "~3.3% → 4.2% PBI"
+        },
+        {
+          "id": "año_3",
+          "etiqueta": "Año 3 (rampa media — 60% del gap)",
+          "factor": 0.6,
+          "costo_efectivo_millones_pen": 28200.0,
+          "nota": "~3.3% → 6.1% PBI"
+        },
+        {
+          "id": "año_5",
+          "etiqueta": "Año 5 (meta plena — 100% del gap)",
+          "factor": 1.0,
+          "costo_efectivo_millones_pen": 47000.0,
+          "nota": "3.3% → 8.0% PBI"
+        }
+      ],
+      "contiene": [
+        {
+          "nombre": "40 médicos por 10",
+          "descripcion": "000 habitantes",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": null,
+          "nota": "no_cuantificado_por_jp",
+          "meta_fuente": "Mayor componente de costo de la envelope. Estimación ballpark pendiente.",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "20 médicos primer nivel por 10",
+          "descripcion": "000 habitantes",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": null,
+          "nota": "no_cuantificado_por_jp",
+          "meta_fuente": "Subconjunto del item anterior. Estimación pendiente.",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "5 nutricionistas por 10",
+          "descripcion": "000 habitantes",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": null,
+          "nota": "no_cuantificado_por_jp",
+          "meta_fuente": "Estimación pendiente.",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "5 psicólogos por 10",
+          "descripcion": "000 habitantes",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": null,
+          "nota": "no_cuantificado_por_jp",
+          "meta_fuente": "Estimación pendiente.",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "5 odontólogos por 10",
+          "descripcion": "000 habitantes",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": null,
+          "nota": "no_cuantificado_por_jp",
+          "meta_fuente": "Estimación pendiente.",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "5 tecnólogos médicos por 10",
+          "descripcion": "000 habitantes",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": null,
+          "nota": "no_cuantificado_por_jp",
+          "meta_fuente": "Estimación pendiente.",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "70% establecimientos primer nivel con capacidad adecuada",
+          "descripcion": "Actualmente solo ~4% (95.89% inadecuados). Implica renovación masiva de >6,000 establecimientos.",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Componente CAPEX importante. Parte del costo podría estar en episódicos.",
+          "meta_fuente": "Plan JP p. 57",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "50% hospitales con capacidad adecuada",
+          "descripcion": "Actualmente solo ~11% (88.76% inadecuados). 258 hospitales del MINSA, ~9 de cada 10 con problemas estructurales.",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Componente CAPEX importante.",
+          "meta_fuente": "Plan JP p. 58",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "100% Institutos de Salud Especializados con capacidad adecuada",
+          "descripcion": "14 institutos existentes, 10 con capacidad inadecuada",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Componente CAPEX.",
+          "meta_fuente": "Plan JP p. 58",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "70% Redes Integradas de Salud operativas",
+          "descripcion": "Sistema de articulación entre niveles de atención",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Reorganización del sistema. Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 57",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Fondo Financiero Intangible de Suministros Estratégicos Médicos",
+          "descripcion": "Nuevo fondo para garantizar disponibilidad de medicamentos e insumos.",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Fondo nuevo sin dotación asignada.",
+          "meta_fuente": "Plan JP p. 31-32",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "200% incremento vacantes universidades públicas en medicina",
+          "descripcion": "Triplicar las vacantes para formar más médicos",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Costo en universidades públicas (parcialmente en envelope educación).",
+          "meta_fuente": "Plan JP p. 59",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Reducción anemia infantil <20%",
+          "descripcion": "De 34% actual",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Cruza con proteccion_infantil_1pbi.",
+          "meta_fuente": "Plan JP p. 57",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Reducción gasto de bolsillo <15%",
+          "descripcion": "Uno de los más altos de la región actualmente",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Indicador de éxito, no item de gasto directo.",
+          "meta_fuente": "Plan JP p. 57",
+          "tambien_en_episodicos": false
+        }
+      ],
+      "alertas": [
+        {
+          "condicion": "rampa == 'año_5'",
+          "nivel": "ambicioso",
+          "color": "amarillo",
+          "mensaje": "Solo Cuba (~12%) y Uruguay (~9%) superan el 8% del PBI en salud en América Latina. Perú duplicaría su gasto sanitario actual de un golpe.",
+          "fuente": {
+            "cita": "OMS Global Health Expenditure Database 2024",
+            "url": "https://apps.who.int/nha/database"
+          }
+        },
+        {
+          "condicion": "rampa == 'año_5'",
+          "nivel": "improbable",
+          "color": "naranja",
+          "mensaje": "Para hacer útil ese gasto hay que sumar ~75,000 médicos en 5 años. Perú gradúa ~4,000 al año.",
+          "fuente": {
+            "cita": "MINSA Repositorio Único de Información en Salud",
+            "url": "https://www.minsa.gob.pe/reunis/"
+          }
+        }
+      ]
+    },
+    {
+      "id": "educacion_6pbi",
+      "categoria": "Educación",
+      "nombre": "Educación al 6% del PBI",
+      "descripcion_corta": "JP propone elevar el gasto en educación desde 4.24% (Banco Mundial 2023) hasta 6% del PBI. Incluye básica, superior, infraestructura, formación docente.",
+      "tipo_control": "toggle_con_rampa",
+      "costo_pleno_millones_pen": 17600.0,
+      "base_actual_pct_pbi": 4.24,
+      "meta_pct_pbi": 6.0,
+      "fuente": {
+        "cita": "Plan JP p. 51 (eje 11, Educación): '6% del PBI'",
+        "url": null
+      },
+      "notas": "Gap 1.76 puntos = S/ 17,586 M. UNESCO recomienda mínimo 6%.",
+      "rampas": [
+        {
+          "id": "año_1",
+          "etiqueta": "Año 1 (rampa inicial — 20% del gap)",
+          "factor": 0.2,
+          "costo_efectivo_millones_pen": 3520.0,
+          "nota": "~4.24% → 4.6% PBI"
+        },
+        {
+          "id": "año_3",
+          "etiqueta": "Año 3 (rampa media — 60% del gap)",
+          "factor": 0.6,
+          "costo_efectivo_millones_pen": 10560.0,
+          "nota": "~4.24% → 5.3% PBI"
+        },
+        {
+          "id": "año_5",
+          "etiqueta": "Año 5 (meta plena — 100% del gap)",
+          "factor": 1.0,
+          "costo_efectivo_millones_pen": 17600.0,
+          "nota": "4.24% → 6.0% PBI"
+        }
+      ],
+      "contiene": [
+        {
+          "nombre": "Analfabetismo cero",
+          "descripcion": "Erradicar el analfabetismo (~1.5-2 millones de adultos)",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Programas de alfabetización masivos. Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 51",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Deserción escolar <2%",
+          "descripcion": "Reducir desde 5-6% actual",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 51",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "1 millón de estudiantes con apoyo integral",
+          "descripcion": "Programa de apoyo a estudiantes vulnerables",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 51",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "90% docentes nombrados",
+          "descripcion": "De ~430,000 docentes — nombrar a la mayoría que está en contrato temporal",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Costo principal: regularización salarial + diferencias de remuneración. Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 52",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "70% cierre brecha EIB",
+          "descripcion": "Educación Intercultural Bilingüe — déficit de 25,796 docentes EIB",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 50",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Reducir violencia escolar 50%",
+          "descripcion": "Medido por reportes SISEVE",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Programas de prevención. Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 52",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "70% cobertura EIB secundaria",
+          "descripcion": "Actualmente muy bajo en secundaria",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 52",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "100% accesibilidad estudiantes con discapacidad",
+          "descripcion": "58% de niños con discapacidad están fuera del sistema actualmente",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "CAPEX en infraestructura + RR.HH. Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 52",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "50% incremento inversión por estudiante universitario",
+          "descripcion": "Sobre línea base actual",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Más de 600k jóvenes en universidades públicas. Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 52",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Triplicar docentes universitarios a tiempo completo",
+          "descripcion": "Sobre la planta actual",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Costo significativo en universidades públicas. Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 52",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "70% universidades públicas con acreditación",
+          "descripcion": "De condiciones básicas de calidad",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Costo en infraestructura, equipamiento, personal. Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 61",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "100% escuelas con servicios básicos",
+          "descripcion": "58% sin agua potable actualmente",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "CAPEX masivo. Brecha de infraestructura educativa = S/ 158,832 M total.",
+          "meta_fuente": "Plan JP p. 51",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "80% conectividad escolar",
+          "descripcion": "Internet en escuelas",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "CAPEX + opex recurrente.",
+          "meta_fuente": "Plan JP p. 51",
+          "tambien_en_episodicos": true
+        }
+      ],
+      "alertas": [
+        {
+          "condicion": "rampa == 'año_5'",
+          "nivel": "ambicioso",
+          "color": "amarillo",
+          "mensaje": "Llegar a 6% PBI pondría a Perú a la altura de Bolivia (8%) y por encima de Chile (5%). Significaría salto de 1.7 puntos PBI — la última vez que el país aumentó la inversión educativa en esa magnitud fue durante el primer gobierno de García (1985-90), revirtiéndose después.",
+          "fuente": {
+            "cita": "UNESCO Global Education Monitoring 2024",
+            "url": "https://www.unesco.org/gem-report/en"
+          }
+        }
+      ]
+    },
+    {
+      "id": "proteccion_infantil_1pbi",
+      "categoria": "Niñez",
+      "nombre": "Protección infantil al 1% del PBI",
+      "descripcion_corta": "JP propone duplicar el gasto en protección infantil desde 0.5% (actual) hasta 1% del PBI.",
+      "tipo_control": "toggle_con_rampa",
+      "costo_pleno_millones_pen": 5000.0,
+      "base_actual_pct_pbi": 0.5,
+      "meta_pct_pbi": 1.0,
+      "fuente": {
+        "cita": "Plan JP p. 62 (Resumen, dimensión social 4): '1% del PBI destinado a protección infantil'",
+        "url": null
+      },
+      "notas": "Gap 0.5 puntos = S/ 4,996 M. Chile destina 1.2%, Colombia 0.8%.",
+      "rampas": [
+        {
+          "id": "año_1",
+          "etiqueta": "Año 1 (rampa inicial — 20% del gap)",
+          "factor": 0.2,
+          "costo_efectivo_millones_pen": 1000.0,
+          "nota": "~0.5% → 0.6% PBI"
+        },
+        {
+          "id": "año_3",
+          "etiqueta": "Año 3 (rampa media — 60% del gap)",
+          "factor": 0.6,
+          "costo_efectivo_millones_pen": 3000.0,
+          "nota": "~0.5% → 0.8% PBI"
+        },
+        {
+          "id": "año_5",
+          "etiqueta": "Año 5 (meta plena — 100% del gap)",
+          "factor": 1.0,
+          "costo_efectivo_millones_pen": 5000.0,
+          "nota": "0.5% → 1.0% PBI"
+        }
+      ],
+      "contiene": [
+        {
+          "nombre": "Reducción desnutrición crónica <12.1%",
+          "descripcion": "En menores de 5 años",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Programas alimentarios. Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 52",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Reducción anemia <34%",
+          "descripcion": "En menores de 3 años",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Cruza con salud_8pbi. Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 52",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Implementación políticas niñez 2026-2031",
+          "descripcion": "Marco de política integral",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Reorganización + nuevos programas.",
+          "meta_fuente": "Plan JP p. 52",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Apoyo a víctimas de violencia contra niñas y adolescentes",
+          "descripcion": "90% de casos de violencia se concentran en este grupo",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 52",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Fortalecimiento DEMUNA y CEM",
+          "descripcion": "Defensorías municipales y Centros de Emergencia Mujer",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Infraestructura + RR.HH. en municipalidades.",
+          "meta_fuente": "Plan JP p. 19-20",
+          "tambien_en_episodicos": false
+        }
+      ],
+      "alertas": [
+        {
+          "condicion": "rampa == 'año_5'",
+          "nivel": "plausible",
+          "color": "verde",
+          "mensaje": "Duplicar el gasto en niñez es factible — Colombia y Chile ya están en niveles cercanos. Es probablemente el envelope más realista del plan.",
+          "fuente": {
+            "cita": "CEPAL Panorama Social de América Latina 2024",
+            "url": "https://www.cepal.org/"
+          }
+        }
+      ]
+    },
+    {
+      "id": "id_05pbi",
+      "categoria": "I+D",
+      "nombre": "Investigación y Desarrollo al 0.5% del PBI",
+      "descripcion_corta": "JP propone más que triplicar el gasto en I+D desde 0.15% (actual) hasta 0.5% del PBI.",
+      "tipo_control": "toggle_con_rampa",
+      "costo_pleno_millones_pen": 3500.0,
+      "base_actual_pct_pbi": 0.15,
+      "meta_pct_pbi": 0.5,
+      "fuente": {
+        "cita": "Plan JP p. 60 y 67: 'Alcanzar 0.5% del PBI en investigación, ciencia y tecnología'",
+        "url": null
+      },
+      "notas": "Gap 0.35 puntos = S/ 3,497 M. Promedio LatAm 0.75%, OCDE 2.38%.",
+      "rampas": [
+        {
+          "id": "año_1",
+          "etiqueta": "Año 1 (rampa inicial — 20% del gap)",
+          "factor": 0.2,
+          "costo_efectivo_millones_pen": 700.0,
+          "nota": "~0.15% → 0.22% PBI"
+        },
+        {
+          "id": "año_3",
+          "etiqueta": "Año 3 (rampa media — 60% del gap)",
+          "factor": 0.6,
+          "costo_efectivo_millones_pen": 2100.0,
+          "nota": "~0.15% → 0.36% PBI"
+        },
+        {
+          "id": "año_5",
+          "etiqueta": "Año 5 (meta plena — 100% del gap)",
+          "factor": 1.0,
+          "costo_efectivo_millones_pen": 3500.0,
+          "nota": "0.15% → 0.5% PBI"
+        }
+      ],
+      "contiene": [
+        {
+          "nombre": "Nuevo Ministerio de Ciencia y Tecnología",
+          "descripcion": "Crear el ministerio reemplazando estructura actual de CONCYTEC",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Setup + opex recurrente. Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 66",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "Programas de innovación productiva",
+          "descripcion": "Programas vinculados a complejos industriales y CITE",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Cruza con capex en episódicos (20 CITE, 10 complejos).",
+          "meta_fuente": "Plan JP p. 67-68",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "Sistema científico nacional",
+          "descripcion": "Articulación universidades + sector productivo",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 66",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Más vacantes posgrado + investigadores",
+          "descripcion": "Aumentar de 0.2 a más investigadores por 1000 PEA",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Estimación pendiente.",
+          "meta_fuente": "Plan JP p. 36",
+          "tambien_en_episodicos": false
+        }
+      ],
+      "alertas": [
+        {
+          "condicion": "rampa == 'año_5'",
+          "nivel": "ambicioso",
+          "color": "amarillo",
+          "mensaje": "Triplicar el gasto en I+D en 5 años no ha ocurrido en ningún país de la región. Corea del Sur tardó 20 años en pasar de 1% a 4%. Perú parte de un nivel mucho más bajo (0.15%).",
+          "fuente": {
+            "cita": "OCDE Main Science and Technology Indicators 2024",
+            "url": "https://www.oecd.org/sti/msti.htm"
+          }
+        }
+      ]
+    },
+    {
+      "id": "servicio_militar_100k",
+      "categoria": "Defensa",
+      "nombre": "Servicio militar voluntario de 100",
+      "descripcion_corta": "000 personas",
+      "tipo_control": "100,000 hombres y mujeres prestando servicio militar voluntario con incentivos en formación técnica/humanista y estudios técnicos incluidos.",
+      "costo_pleno_millones_pen": null,
+      "base_actual_pct_pbi": 2500.0,
+      "meta_pct_pbi": null,
+      "fuente": {
+        "cita": null,
+        "url": "Plan JP p. 65 (Resumen, dimensión institucional 3): '100 mil hombres y mujeres que prestan el servicio militar, con estudios técnicos incluidos'"
+      },
+      "notas": null,
+      "rampas": [],
+      "contiene": [
+        {
+          "nombre": "100k personas en servicio militar voluntario",
+          "descripcion": "Hombres y mujeres con incentivos económicos",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Costo ya estimado en envelope (S/ 2,500 M).",
+          "meta_fuente": "Plan JP p. 65",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Formación técnica y humanista durante servicio",
+          "descripcion": "Educación incluida durante el servicio",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Componente educativo del costo.",
+          "meta_fuente": "Plan JP p. 65",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Estudios técnicos incluidos",
+          "descripcion": "Certificación al egresar del servicio",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Componente formativo.",
+          "meta_fuente": "Plan JP p. 65",
+          "tambien_en_episodicos": false
+        }
+      ],
+      "alertas": [
+        {
+          "condicion": "siempre",
+          "nivel": "plausible",
+          "color": "verde",
+          "mensaje": "100,000 plazas equivale a duplicar el tamaño actual del servicio militar voluntario. Costo modesto en relación a otros items.",
+          "fuente": {
+            "cita": "Plan JP p. 65",
+            "url": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "becas_jovenes",
+      "categoria": "Educación",
+      "nombre": "Becas y plazas adicionales para jóvenes",
+      "descripcion_corta": "120k Beca 18 adicionales + 50k Beca Segunda Oportunidad + 50k plazas laborales + 5k plazas practicantes + 10k primeras prácticas profesionales.",
+      "tipo_control": "toggle",
+      "costo_pleno_millones_pen": 2000.0,
+      "base_actual_pct_pbi": null,
+      "meta_pct_pbi": null,
+      "fuente": {
+        "cita": "Plan JP p. 62 y 55 (becas y empleabilidad juventud)",
+        "url": null
+      },
+      "notas": "Estimación basada en costo unitario actual de Beca 18 (S/ ~12,000/año) escalado.",
+      "rampas": [],
+      "contiene": [
+        {
+          "nombre": "120k Beca 18 adicionales",
+          "descripcion": "Sobre la línea base actual del programa",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Costo unitario ~S/ 12,000/año/estudiante.",
+          "meta_fuente": "Plan JP p. 62",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "50k Beca Segunda Oportunidad",
+          "descripcion": "Para jóvenes 22-29 que abandonaron estudios",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Nueva beca creada por el plan.",
+          "meta_fuente": "Plan JP p. 55",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "50k jóvenes a plazas laborales",
+          "descripcion": "Programa de empleo juvenil",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Subsidios al empleo.",
+          "meta_fuente": "Plan JP p. 62",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "5k plazas practicantes sector público",
+          "descripcion": "Practicantes en entidades del Estado",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Costo bajo (~S/ 100 M).",
+          "meta_fuente": "Plan JP p. 55",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "10k plazas primeras prácticas profesionales",
+          "descripcion": "Prácticas pre-profesionales",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Costo bajo.",
+          "meta_fuente": "Plan JP p. 55",
+          "tambien_en_episodicos": false
+        }
+      ],
+      "alertas": [
+        {
+          "condicion": "siempre",
+          "nivel": "plausible",
+          "color": "verde",
+          "mensaje": "170,000 becas adicionales es ambicioso pero realista. Beca 18 ya entrega ~30,000/año.",
+          "fuente": {
+            "cita": "Pronabec estadísticas históricas",
+            "url": "https://www.pronabec.gob.pe/"
+          }
+        }
+      ]
+    },
+    {
+      "id": "pension_reparaciones",
+      "categoria": "Justicia transicional",
+      "nombre": "Pensiones reparaciones víctimas (recurrente)",
+      "descripcion_corta": "Componente recurrente de las reparaciones a víctimas de la violencia política 1980-2000 (90% reparadas al 2031 de ~69,280 víctimas).",
+      "tipo_control": "toggle",
+      "costo_pleno_millones_pen": 400.0,
+      "base_actual_pct_pbi": null,
+      "meta_pct_pbi": null,
+      "fuente": {
+        "cita": "Plan JP p. 64 (Resumen, dimensión institucional 2): '90% de víctimas individuales reparadas al 2031'",
+        "url": null
+      },
+      "notas": "El componente lump-sum está en archivo 08 (episódicos).",
+      "rampas": [],
+      "contiene": [
+        {
+          "nombre": "90% víctimas individuales reparadas al 2031",
+          "descripcion": "De ~69,280 víctimas registradas (CVR/RENADE)",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Componente pensión recurrente. Lump-sum en episódicos.",
+          "meta_fuente": "Plan JP p. 64",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "100% comunidades con reparación colectiva",
+          "descripcion": "Reparación colectiva: tierras, memoria",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Mayormente CAPEX en episódicos.",
+          "meta_fuente": "Plan JP p. 64",
+          "tambien_en_episodicos": true
+        }
+      ],
+      "alertas": []
+    },
+    {
+      "id": "cultura_recurrente",
+      "categoria": "Cultura",
+      "nombre": "Cultura recurrente",
+      "descripcion_corta": "2,000 proyectos culturales comunitarios financiados al 2031 + 60% trabajadores culturales formalizados + Sistema Nacional de Cultura Plurinacional operativo.",
+      "tipo_control": "toggle",
+      "costo_pleno_millones_pen": 300.0,
+      "base_actual_pct_pbi": null,
+      "meta_pct_pbi": null,
+      "fuente": {
+        "cita": "Plan JP p. 64 (Resumen, dimensión institucional 2)",
+        "url": null
+      },
+      "notas": "Estimación: ~S/ 150 M para Fondo de Cultura + ~S/ 150 M para formalización.",
+      "rampas": [],
+      "contiene": [
+        {
+          "nombre": "2000 proyectos culturales comunitarios al 2031",
+          "descripcion": "Financiados por Fondo Nacional de Cultura",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "~S/ 200 M/año aproximado.",
+          "meta_fuente": "Plan JP p. 64",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "60% trabajadores culturales formalizados",
+          "descripcion": "De ~30,119 trabajadores registrados (>80% informales actualmente)",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Subsidios y seguros laborales.",
+          "meta_fuente": "Plan JP p. 20",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Sistema Nacional de Cultura Plurinacional",
+          "descripcion": "Reforma del Ministerio de Cultura",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Setup en episódicos, opex aquí.",
+          "meta_fuente": "Plan JP p. 19",
+          "tambien_en_episodicos": true
+        }
+      ],
+      "alertas": []
+    },
+    {
+      "id": "nuevas_instituciones_opex",
+      "categoria": "Estado",
+      "nombre": "Opex de nuevas instituciones y fondos",
+      "descripcion_corta": "Costos operativos recurrentes de ~12 nuevas instituciones/fondos creados por el plan (Verdad y Justicia, Reparaciones, Empleabilidad, Juventudes, Desarrollo Urbano, Innovación Construcción, Ministerio de Ciencia y Tecnología, etc.).",
+      "tipo_control": "toggle",
+      "costo_pleno_millones_pen": 500.0,
+      "base_actual_pct_pbi": null,
+      "meta_pct_pbi": null,
+      "fuente": {
+        "cita": "Plan JP — múltiples menciones a lo largo del documento",
+        "url": null
+      },
+      "notas": "El costo de creación/setup está parcialmente en archivo 08 (episódicos). Aquí solo opex anual.",
+      "rampas": [],
+      "contiene": [
+        {
+          "nombre": "Comisión Plurinacional de la Verdad y Justicia Transicional",
+          "descripcion": "Nueva comisión para revisar casos 2022-2023 y profundizar CVR",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Comisión multianual. Setup en episódicos.",
+          "meta_fuente": "Plan JP p. 19",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "Sistema Nacional de Justicia Transicional",
+          "descripcion": "Marco institucional vinculante",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Setup en episódicos.",
+          "meta_fuente": "Plan JP p. 64",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "Fondo Nacional de Reparaciones Integrales",
+          "descripcion": "Opex del fondo (los pagos están en pension_reparaciones)",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Setup en episódicos.",
+          "meta_fuente": "Plan JP p. 19",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "Instituto Nacional por la Empleabilidad",
+          "descripcion": "Coordinación de orientación vocacional y empleabilidad juvenil",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Setup en episódicos.",
+          "meta_fuente": "Plan JP p. 55",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "Consejo Nacional de Juventudes",
+          "descripcion": "Reemplaza Secretaría Nacional de Juventudes",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Reorganización institucional.",
+          "meta_fuente": "Plan JP p. 55",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Instituto Nacional de Desarrollo Urbano y Ordenamiento Territorial",
+          "descripcion": "Nueva entidad",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Setup en episódicos.",
+          "meta_fuente": "Plan JP p. 33",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "Centro de Innovación Nacional (construcción/saneamiento)",
+          "descripcion": "Para zonas afectadas por heladas, friaje, inundaciones",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Setup en episódicos.",
+          "meta_fuente": "Plan JP p. 34",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "Laboratorio Urbano Nacional",
+          "descripcion": "Ideas para un urbanismo con justicia social",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Setup en episódicos.",
+          "meta_fuente": "Plan JP p. 34",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "Unidad Especial Inteligencia Financiera y Ciberdelito",
+          "descripcion": "Dentro de PNP para combatir extorsiones digitales",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Setup en episódicos.",
+          "meta_fuente": "Plan JP p. 23",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "Veedurías ciudadanas sobre medios",
+          "descripcion": "Para vigilar contenidos en radio y TV",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Costo bajo.",
+          "meta_fuente": "Plan JP p. 12",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Plataforma digital unificada denuncias",
+          "descripcion": "Para denuncias ciudadanas y seguimiento",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Setup tecnológico en episódicos.",
+          "meta_fuente": "Plan JP p. 23",
+          "tambien_en_episodicos": true
+        },
+        {
+          "nombre": "Fondo de Agua",
+          "descripcion": "Para conservación de ecosistemas productores de agua",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "nueva_institucion_sin_dotacion",
+          "nota": "Financiado por canon hídrico (ingreso).",
+          "meta_fuente": "Plan JP p. 45",
+          "tambien_en_episodicos": false
+        }
+      ],
+      "alertas": []
+    },
+    {
+      "id": "jovenes_otros",
+      "categoria": "Juventud",
+      "nombre": "Otros programas para jóvenes",
+      "descripcion_corta": "Reforma Política Nacional de Juventud + Programa de certificación y empleabilidad para personas con discapacidad + ESI reforzada + Servicios de salud mental comunitaria.",
+      "tipo_control": "toggle",
+      "costo_pleno_millones_pen": 300.0,
+      "base_actual_pct_pbi": null,
+      "meta_pct_pbi": null,
+      "fuente": {
+        "cita": "Plan JP p. 55-56 (eje 12, Juventud)",
+        "url": null
+      },
+      "notas": "Estimación: programas pequeños sumados.",
+      "rampas": [],
+      "contiene": [
+        {
+          "nombre": "Reforma Política Nacional de Juventud",
+          "descripcion": "Reformular política aprobada en 2019",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Reorganización institucional.",
+          "meta_fuente": "Plan JP p. 55",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Programa certificación y empleabilidad personas con discapacidad",
+          "descripcion": "60% de personas con discapacidad en edad de trabajar no tienen empleo",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Subsidios + sistema 'Soy Capaz'.",
+          "meta_fuente": "Plan JP p. 56",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "ESI (Educación Sexual Integral) reforzada",
+          "descripcion": "En toda la comunidad educativa para reducir embarazo adolescente",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Programa educativo, mayormente dentro de educacion_6pbi.",
+          "meta_fuente": "Plan JP p. 56",
+          "tambien_en_episodicos": false
+        },
+        {
+          "nombre": "Servicios salud mental comunitaria",
+          "descripcion": "Vinculados a psicólogos en instituciones educativas",
+          "costo_anual_estimado_millones_pen": null,
+          "estado": "no_cuantificado_por_jp",
+          "nota": "Cruza con salud_8pbi.",
+          "meta_fuente": "Plan JP p. 56",
+          "tambien_en_episodicos": false
+        }
+      ],
+      "alertas": []
+    }
+  ],
+  "episodicos": [
+    {
+      "id": "metro_lima_transito",
+      "tipo": "gasto",
+      "categoria": "Infraestructura",
+      "nombre": "Red Básica Metro Lima + trenes cercanías + teleféricos",
+      "descripcion": "Acelerar ejecución de líneas restantes del Metro de Lima, sistema de trenes de cercanías, y teleféricos urbanos.",
+      "monto_total_millones_pen": 100000.0,
+      "periodo_anos": 10.0,
+      "monto_anual_amortizado_millones_pen": 10000.0,
+      "fuente": {
+        "cita": "Plan JP p. 62 (Resumen, dimensión social 3); estimaciones de costo basadas en líneas Metro Lima 1 y 2",
+        "url": "https://www.proinversion.gob.pe/"
+      },
+      "notas": "Línea 2 del Metro costó ~US$ 5,750 M (~S/ 21,000 M). Plan promete completar Red Básica + adicionar trenes y teleféricos."
+    },
+    {
+      "id": "irrigaciones_500k_has",
+      "tipo": "gasto",
+      "categoria": "Infraestructura",
+      "nombre": "500",
+      "descripcion": "000 hectáreas nuevas irrigaciones",
+      "monto_total_millones_pen": null,
+      "periodo_anos": 20000.0,
+      "monto_anual_amortizado_millones_pen": 5.0,
+      "fuente": {
+        "cita": "4000",
+        "url": "Plan JP p. 69 (Resumen, dimensión económica 3): '500 mil has de nuevas irrigaciones implementadas'"
+      },
+      "notas": null
+    },
+    {
+      "id": "viviendas_50k",
+      "tipo": "gasto",
+      "categoria": "Vivienda",
+      "nombre": "50",
+      "descripcion": "000 viviendas nuevas con Banco de la Nación",
+      "monto_total_millones_pen": null,
+      "periodo_anos": 12000.0,
+      "monto_anual_amortizado_millones_pen": 5.0,
+      "fuente": {
+        "cita": "2400",
+        "url": "Plan JP p. 61 (Resumen, dimensión social 3): '50 mil viviendas nuevas construidas con préstamos del Banco de la Nación'"
+      },
+      "notas": null
+    },
+    {
+      "id": "complejos_industriales",
+      "tipo": "gasto",
+      "categoria": "Industria",
+      "nombre": "10 complejos industriales descentralizados",
+      "descripcion": "Complejos industriales tecnológicos como motores de transformación productiva regional",
+      "monto_total_millones_pen": 17500.0,
+      "periodo_anos": 5.0,
+      "monto_anual_amortizado_millones_pen": 3500.0,
+      "fuente": {
+        "cita": "Plan JP p. 66 (Resumen, dimensión económica 1)",
+        "url": null
+      },
+      "notas": "Estimación: ~S/ 1,750 M por complejo (industria pesada). Rango amplio dependiendo de sector."
+    },
+    {
+      "id": "cite_polos_grd",
+      "tipo": "gasto",
+      "categoria": "Industria",
+      "nombre": "20 CITE + 3 polos tecnológicos GRD",
+      "descripcion": "20 nuevos Centros de Innovación Productiva y Transferencia Tecnológica + 3 polos tecnológicos para Gestión del Riesgo de Desastres (Costa, Andes, Amazonía)",
+      "monto_total_millones_pen": 5000.0,
+      "periodo_anos": 5.0,
+      "monto_anual_amortizado_millones_pen": 1000.0,
+      "fuente": {
+        "cita": "Plan JP p. 68 y 71 (Resumen, dimensión económica 2 y territorial 1)",
+        "url": null
+      },
+      "notas": "Estimación: ~S/ 200 M por CITE + S/ 300-500 M por polo GRD."
+    },
+    {
+      "id": "parques_mineros",
+      "tipo": "gasto",
+      "categoria": "Minería",
+      "nombre": "600 cooperativas + parques mineros",
+      "descripcion": "600 cooperativas mineras formalizadas en parques mineros con servicios básicos, salud y educación",
+      "monto_total_millones_pen": 3000.0,
+      "periodo_anos": 5.0,
+      "monto_anual_amortizado_millones_pen": 600.0,
+      "fuente": {
+        "cita": "Plan JP p. 69-70 (Resumen, dimensión económica 4)",
+        "url": null
+      },
+      "notas": "Inversión en infraestructura de los parques + servicios básicos."
+    },
+    {
+      "id": "reparaciones_lumpsum",
+      "tipo": "gasto",
+      "categoria": "Justicia transicional",
+      "nombre": "Reparaciones lump-sum a víctimas de violencia",
+      "descripcion": "Pagos one-time a víctimas individuales (la pensión recurrente está en 04_gastos.csv)",
+      "monto_total_millones_pen": 5000.0,
+      "periodo_anos": 5.0,
+      "monto_anual_amortizado_millones_pen": 1000.0,
+      "fuente": {
+        "cita": "Plan JP p. 64: '90% víctimas individuales reparadas al 2031'. ~62,300 personas",
+        "url": null
+      },
+      "notas": "Estimación: ~S/ 80,000 por víctima en promedio (reparación + acompañamiento)."
+    },
+    {
+      "id": "obras_paralizadas_recuperacion",
+      "tipo": "gasto",
+      "categoria": "Eficiencia",
+      "nombre": "Recuperar 20% de obras públicas paralizadas",
+      "descripcion": "Continuación de obras públicas paralizadas (2,572 obras con S/ 43,163 M comprometidos, 52% sin iniciar)",
+      "monto_total_millones_pen": 8600.0,
+      "periodo_anos": 5.0,
+      "monto_anual_amortizado_millones_pen": 1720.0,
+      "fuente": {
+        "cita": "Plan JP p. 67 (Resumen, dimensión económica 2.2): 'Recuperar el 20% de obras paralizadas'",
+        "url": null
+      },
+      "notas": "Esto es una ENTRADA de capital ya comprometido — no un gasto recurrente. El monto recupera valor existente."
+    },
+    {
+      "id": "salud_infra_cierre",
+      "tipo": "gasto",
+      "categoria": "Salud — capex",
+      "nombre": "Cierre brecha infraestructura salud",
+      "descripcion": "Renovar/construir establecimientos del primer nivel (~6,000) y hospitales (258). Parcialmente dentro de salud_8pbi pero requiere CAPEX significativo.",
+      "monto_total_millones_pen": 30000.0,
+      "periodo_anos": 5.0,
+      "monto_anual_amortizado_millones_pen": 6000.0,
+      "fuente": {
+        "cita": "Diagnóstico de Brechas MINSA 2024-2029",
+        "url": "https://www.gob.pe/institucion/minsa/informes-publicaciones/7046778-diagnostico-de-brechas-de-infraestructura-o-acceso-a-servicios-del-sector-salud-2027-2029"
+      },
+      "notas": "Cruza con salud_8pbi (envelope contiene este capex). Listado aquí para vista de inversiones de capital."
+    },
+    {
+      "id": "educacion_infra_cierre",
+      "tipo": "gasto",
+      "categoria": "Educación — capex",
+      "nombre": "Cierre 20% brecha infraestructura educativa",
+      "descripcion": "Brecha total estimada en S/ 158,832 M (MINEDU 2023). Plan promete cerrar 20% — equivale a S/ 31,766 M.",
+      "monto_total_millones_pen": 31766.0,
+      "periodo_anos": 5.0,
+      "monto_anual_amortizado_millones_pen": 6353.0,
+      "fuente": {
+        "cita": "MINEDU Diagnóstico de Brecha de Infraestructura Educativa, corte 2023",
+        "url": null
+      },
+      "notas": "Plan JP p. 51. Cruza con educacion_6pbi."
+    },
+    {
+      "id": "nuevas_instituciones_setup",
+      "tipo": "gasto",
+      "categoria": "Estado — capex",
+      "nombre": "Setup de nuevas instituciones",
+      "descripcion": "Costo de creación de ~12 nuevas instituciones/fondos: edificios, IT, contratación inicial",
+      "monto_total_millones_pen": 3000.0,
+      "periodo_anos": 2.0,
+      "monto_anual_amortizado_millones_pen": 1500.0,
+      "fuente": {
+        "cita": "Plan JP — múltiples menciones",
+        "url": null
+      },
+      "notas": "Costo one-time mayoritario en los primeros 2 años de gobierno."
+    },
+    {
+      "id": "renta_extraordinaria_desastres",
+      "tipo": "ingreso",
+      "categoria": "Eventos extraordinarios",
+      "nombre": "Renta extraordinaria por desastres socio-naturales",
+      "descripcion": "Impuesto extraordinario que se activa ante desastres (Niño costero, terremotos, etc.) — episódico por naturaleza.",
+      "monto_total_millones_pen": null,
+      "periodo_anos": null,
+      "monto_anual_amortizado_millones_pen": 3000.0,
+      "fuente": {
+        "cita": "Plan JP p. 67 (Resumen, dimensión económica 2.2)",
+        "url": null
+      },
+      "notas": "Episódico. Solo se activa en años de eventos extremos. Argentina aplicó similar tras COVID."
+    },
+    {
+      "id": "recuperar_obras_paralizadas_ingreso",
+      "tipo": "ingreso",
+      "categoria": "Eficiencia",
+      "nombre": "Recuperar valor de obras paralizadas (una vez)",
+      "descripcion": "Las obras paralizadas representan capital ya comprometido (S/ 43,163 M). Recuperar 20% = S/ 8,600 M valor desbloqueado.",
+      "monto_total_millones_pen": 8600.0,
+      "periodo_anos": 1.0,
+      "monto_anual_amortizado_millones_pen": 8600.0,
+      "fuente": {
+        "cita": "Plan JP p. 67 (Resumen, dimensión económica 2.2)",
+        "url": null
+      },
+      "notas": "NO es nuevo ingreso tributario — es eficiencia en uso del presupuesto existente. Listado aquí para completitud."
+    }
+  ],
+  "referencias_fondo": [
+    {
+      "id": "credicorp_utilidad",
+      "etiqueta": "Utilidad neta anual Credicorp",
+      "subetiqueta": "Mayor grupo financiero del Perú (BCP, Pacífico, Prima, MiBanco) — 2024",
+      "monto_anual_millones_pen": 5400.0,
+      "fuente": {
+        "cita": "Credicorp Memoria Anual 2024",
+        "url": "https://www.credicorp.com/inversionistas/informacion-financiera"
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": true
+    },
+    {
+      "id": "cerro_verde_utilidad",
+      "etiqueta": "Utilidad neta Cerro Verde",
+      "subetiqueta": "Mina de cobre operada por Freeport-McMoRan en Arequipa — promedio 2022-2024",
+      "monto_anual_millones_pen": 4000.0,
+      "fuente": {
+        "cita": "Sociedad Minera Cerro Verde Memoria Anual",
+        "url": "https://www.cerroverde.pe/"
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": true
+    },
+    {
+      "id": "backus_utilidad",
+      "etiqueta": "Utilidad neta Backus AB InBev",
+      "subetiqueta": "Monopolio cervecero (Cusqueña, Cristal, Pilsen) — 2024",
+      "monto_anual_millones_pen": 1800.0,
+      "fuente": {
+        "cita": "Backus Reporte Anual 2024",
+        "url": "https://www.backus.pe/"
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": true
+    },
+    {
+      "id": "tres_empresas_utilidad",
+      "etiqueta": "Utilidades combinadas: Credicorp + Cerro Verde + Backus",
+      "subetiqueta": "Lo que ganan en un año las tres empresas juntas — 2024",
+      "monto_anual_millones_pen": 11200.0,
+      "fuente": {
+        "cita": "Suma de memorias anuales 2024",
+        "url": null
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": true
+    },
+    {
+      "id": "pension_65_presupuesto",
+      "etiqueta": "Presupuesto anual Pensión 65",
+      "subetiqueta": "Programa de transferencias a adultos mayores en pobreza extrema — 2024",
+      "monto_anual_millones_pen": 1000.0,
+      "fuente": {
+        "cita": "MEF Consulta Amigable — Programa 097",
+        "url": "https://apps5.mineco.gob.pe/transparencia/Navegador/default.aspx"
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": false
+    },
+    {
+      "id": "juntos_presupuesto",
+      "etiqueta": "Presupuesto anual Juntos",
+      "subetiqueta": "Programa de transferencias condicionadas a hogares en pobreza — 2024",
+      "monto_anual_millones_pen": 1100.0,
+      "fuente": {
+        "cita": "MEF Consulta Amigable — Programa 049",
+        "url": "https://apps5.mineco.gob.pe/transparencia/Navegador/default.aspx"
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": false
+    },
+    {
+      "id": "beca18_presupuesto",
+      "etiqueta": "Presupuesto anual Beca 18",
+      "subetiqueta": "Programa nacional de becas para educación superior — 2024",
+      "monto_anual_millones_pen": 500.0,
+      "fuente": {
+        "cita": "MEF/Pronabec Presupuesto 2024",
+        "url": "https://www.pronabec.gob.pe/"
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": false
+    },
+    {
+      "id": "servicio_deuda",
+      "etiqueta": "Servicio de la deuda pública",
+      "subetiqueta": "Lo que el Estado paga cada año solo en intereses y amortizaciones — 2024",
+      "monto_anual_millones_pen": 20000.0,
+      "fuente": {
+        "cita": "BCRP Memoria Anual 2024",
+        "url": "https://www.bcrp.gob.pe/publicaciones/memoria-anual.html"
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": true
+    },
+    {
+      "id": "gasto_militar",
+      "etiqueta": "Gasto en defensa y seguridad",
+      "subetiqueta": "Presupuesto MINDEF + MININTER (PNP, FF.AA.) — 2024-2025",
+      "monto_anual_millones_pen": 19800.0,
+      "fuente": {
+        "cita": "MEF MMM 2026-2029 (citado en Comex Perú)",
+        "url": "https://www.comexperu.org.pe/articulo/crecimiento-deficit-y-recaudacion-los-tres-ejes-del-marco-macroeconomico-multianual-2026-2029"
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": true
+    },
+    {
+      "id": "salud_actual",
+      "etiqueta": "Gasto público en salud actual",
+      "subetiqueta": "Equivalente al 3.3% del PBI — lo que JP propone llevar a 8% — 2023",
+      "monto_anual_millones_pen": 33000.0,
+      "fuente": {
+        "cita": "MEF Presupuesto Función 020 Salud; OPS Informe Anual Perú 2024",
+        "url": "https://www.paho.org/es/publicaciones/peru-informe-anual-pais-2024"
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": true
+    },
+    {
+      "id": "presupuesto_total",
+      "etiqueta": "Presupuesto público total anual",
+      "subetiqueta": "Toda la inversión y gasto del Estado peruano — 2024",
+      "monto_anual_millones_pen": 257000.0,
+      "fuente": {
+        "cita": "MEF Ley de Presupuesto 2024",
+        "url": "https://www.mef.gob.pe/es/normatividad-sp-1449/por-instrumento/leyes"
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": true
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+gasto_id,sub_nombre,sub_descripcion,costo_anual_estimado_millones_pen,estado,nota,meta_fuente,tambien_en_episodicos
+salud_8pbi,40 médicos por 10,000 habitantes,"Cerrar brecha desde 17.9 a 40 médicos por 10k hab — aproximadamente 75,000 profesionales adicionales",,no_cuantificado_por_jp,"Mayor componente de costo de la envelope. Estimación ballpark pendiente.",Plan JP p. 58,false
+salud_8pbi,20 médicos primer nivel por 10,000 habitantes,"Cerrar brecha desde 4 a 20 médicos del primer nivel por 10k hab — ~55,000 profesionales para atención primaria",,no_cuantificado_por_jp,"Subconjunto del item anterior. Estimación pendiente.",Plan JP p. 58,false
+salud_8pbi,5 nutricionistas por 10,000 habitantes,"Cerrar brecha desde 1 actual",,no_cuantificado_por_jp,"Estimación pendiente.",Plan JP p. 58,false
+salud_8pbi,5 psicólogos por 10,000 habitantes,"Cerrar brecha desde 2.4 actual",,no_cuantificado_por_jp,"Estimación pendiente.",Plan JP p. 58,false
+salud_8pbi,5 odontólogos por 10,000 habitantes,"Cerrar brecha desde 2.2 actual",,no_cuantificado_por_jp,"Estimación pendiente.",Plan JP p. 58,false
+salud_8pbi,5 tecnólogos médicos por 10,000 habitantes,"Cerrar brecha desde 2.6 actual",,no_cuantificado_por_jp,"Estimación pendiente.",Plan JP p. 58,false
+salud_8pbi,70% establecimientos primer nivel con capacidad adecuada,"Actualmente solo ~4% (95.89% inadecuados). Implica renovación masiva de >6,000 establecimientos.",,no_cuantificado_por_jp,"Componente CAPEX importante. Parte del costo podría estar en episódicos.",Plan JP p. 57,true
+salud_8pbi,50% hospitales con capacidad adecuada,"Actualmente solo ~11% (88.76% inadecuados). 258 hospitales del MINSA, ~9 de cada 10 con problemas estructurales.",,no_cuantificado_por_jp,"Componente CAPEX importante.",Plan JP p. 58,true
+salud_8pbi,100% Institutos de Salud Especializados con capacidad adecuada,"14 institutos existentes, 10 con capacidad inadecuada",,no_cuantificado_por_jp,"Componente CAPEX.",Plan JP p. 58,true
+salud_8pbi,70% Redes Integradas de Salud operativas,"Sistema de articulación entre niveles de atención",,nueva_institucion_sin_dotacion,"Reorganización del sistema. Estimación pendiente.",Plan JP p. 57,false
+salud_8pbi,Fondo Financiero Intangible de Suministros Estratégicos Médicos,"Nuevo fondo para garantizar disponibilidad de medicamentos e insumos.",,nueva_institucion_sin_dotacion,"Fondo nuevo sin dotación asignada.",Plan JP p. 31-32,false
+salud_8pbi,200% incremento vacantes universidades públicas en medicina,"Triplicar las vacantes para formar más médicos",,no_cuantificado_por_jp,"Costo en universidades públicas (parcialmente en envelope educación).",Plan JP p. 59,false
+salud_8pbi,Reducción anemia infantil <20%,"De 34% actual",,no_cuantificado_por_jp,"Cruza con proteccion_infantil_1pbi.",Plan JP p. 57,false
+salud_8pbi,Reducción gasto de bolsillo <15%,"Uno de los más altos de la región actualmente",,no_cuantificado_por_jp,"Indicador de éxito, no item de gasto directo.",Plan JP p. 57,false
+educacion_6pbi,Analfabetismo cero,"Erradicar el analfabetismo (~1.5-2 millones de adultos)",,no_cuantificado_por_jp,"Programas de alfabetización masivos. Estimación pendiente.",Plan JP p. 51,false
+educacion_6pbi,Deserción escolar <2%,"Reducir desde 5-6% actual",,no_cuantificado_por_jp,"Estimación pendiente.",Plan JP p. 51,false
+educacion_6pbi,1 millón de estudiantes con apoyo integral,"Programa de apoyo a estudiantes vulnerables",,no_cuantificado_por_jp,"Estimación pendiente.",Plan JP p. 51,false
+educacion_6pbi,90% docentes nombrados,"De ~430,000 docentes — nombrar a la mayoría que está en contrato temporal",,no_cuantificado_por_jp,"Costo principal: regularización salarial + diferencias de remuneración. Estimación pendiente.",Plan JP p. 52,false
+educacion_6pbi,70% cierre brecha EIB,"Educación Intercultural Bilingüe — déficit de 25,796 docentes EIB",,no_cuantificado_por_jp,"Estimación pendiente.",Plan JP p. 50,false
+educacion_6pbi,Reducir violencia escolar 50%,"Medido por reportes SISEVE",,no_cuantificado_por_jp,"Programas de prevención. Estimación pendiente.",Plan JP p. 52,false
+educacion_6pbi,70% cobertura EIB secundaria,"Actualmente muy bajo en secundaria",,no_cuantificado_por_jp,"Estimación pendiente.",Plan JP p. 52,false
+educacion_6pbi,100% accesibilidad estudiantes con discapacidad,"58% de niños con discapacidad están fuera del sistema actualmente",,no_cuantificado_por_jp,"CAPEX en infraestructura + RR.HH. Estimación pendiente.",Plan JP p. 52,true
+educacion_6pbi,50% incremento inversión por estudiante universitario,"Sobre línea base actual",,no_cuantificado_por_jp,"Más de 600k jóvenes en universidades públicas. Estimación pendiente.",Plan JP p. 52,false
+educacion_6pbi,Triplicar docentes universitarios a tiempo completo,"Sobre la planta actual",,no_cuantificado_por_jp,"Costo significativo en universidades públicas. Estimación pendiente.",Plan JP p. 52,false
+educacion_6pbi,70% universidades públicas con acreditación,"De condiciones básicas de calidad",,no_cuantificado_por_jp,"Costo en infraestructura, equipamiento, personal. Estimación pendiente.",Plan JP p. 61,true
+educacion_6pbi,100% escuelas con servicios básicos,"58% sin agua potable actualmente",,no_cuantificado_por_jp,"CAPEX masivo. Brecha de infraestructura educativa = S/ 158,832 M total.",Plan JP p. 51,true
+educacion_6pbi,80% conectividad escolar,"Internet en escuelas",,no_cuantificado_por_jp,"CAPEX + opex recurrente.",Plan JP p. 51,true
+proteccion_infantil_1pbi,Reducción desnutrición crónica <12.1%,"En menores de 5 años",,no_cuantificado_por_jp,"Programas alimentarios. Estimación pendiente.",Plan JP p. 52,false
+proteccion_infantil_1pbi,Reducción anemia <34%,"En menores de 3 años",,no_cuantificado_por_jp,"Cruza con salud_8pbi. Estimación pendiente.",Plan JP p. 52,false
+proteccion_infantil_1pbi,Implementación políticas niñez 2026-2031,"Marco de política integral",,no_cuantificado_por_jp,"Reorganización + nuevos programas.",Plan JP p. 52,false
+proteccion_infantil_1pbi,Apoyo a víctimas de violencia contra niñas y adolescentes,"90% de casos de violencia se concentran en este grupo",,no_cuantificado_por_jp,"Estimación pendiente.",Plan JP p. 52,false
+proteccion_infantil_1pbi,Fortalecimiento DEMUNA y CEM,"Defensorías municipales y Centros de Emergencia Mujer",,no_cuantificado_por_jp,"Infraestructura + RR.HH. en municipalidades.",Plan JP p. 19-20,false
+id_05pbi,Nuevo Ministerio de Ciencia y Tecnología,"Crear el ministerio reemplazando estructura actual de CONCYTEC",,nueva_institucion_sin_dotacion,"Setup + opex recurrente. Estimación pendiente.",Plan JP p. 66,true
+id_05pbi,Programas de innovación productiva,"Programas vinculados a complejos industriales y CITE",,no_cuantificado_por_jp,"Cruza con capex en episódicos (20 CITE, 10 complejos).",Plan JP p. 67-68,true
+id_05pbi,Sistema científico nacional,"Articulación universidades + sector productivo",,no_cuantificado_por_jp,"Estimación pendiente.",Plan JP p. 66,false
+id_05pbi,Más vacantes posgrado + investigadores,"Aumentar de 0.2 a más investigadores por 1000 PEA",,no_cuantificado_por_jp,"Estimación pendiente.",Plan JP p. 36,false
+servicio_militar_100k,100k personas en servicio militar voluntario,"Hombres y mujeres con incentivos económicos",,no_cuantificado_por_jp,"Costo ya estimado en envelope (S/ 2,500 M).",Plan JP p. 65,false
+servicio_militar_100k,Formación técnica y humanista durante servicio,"Educación incluida durante el servicio",,no_cuantificado_por_jp,"Componente educativo del costo.",Plan JP p. 65,false
+servicio_militar_100k,Estudios técnicos incluidos,"Certificación al egresar del servicio",,no_cuantificado_por_jp,"Componente formativo.",Plan JP p. 65,false
+becas_jovenes,120k Beca 18 adicionales,"Sobre la línea base actual del programa",,no_cuantificado_por_jp,"Costo unitario ~S/ 12,000/año/estudiante.",Plan JP p. 62,false
+becas_jovenes,50k Beca Segunda Oportunidad,"Para jóvenes 22-29 que abandonaron estudios",,nueva_institucion_sin_dotacion,"Nueva beca creada por el plan.",Plan JP p. 55,false
+becas_jovenes,50k jóvenes a plazas laborales,"Programa de empleo juvenil",,nueva_institucion_sin_dotacion,"Subsidios al empleo.",Plan JP p. 62,false
+becas_jovenes,5k plazas practicantes sector público,"Practicantes en entidades del Estado",,no_cuantificado_por_jp,"Costo bajo (~S/ 100 M).",Plan JP p. 55,false
+becas_jovenes,10k plazas primeras prácticas profesionales,"Prácticas pre-profesionales",,no_cuantificado_por_jp,"Costo bajo.",Plan JP p. 55,false
+pension_reparaciones,90% víctimas individuales reparadas al 2031,"De ~69,280 víctimas registradas (CVR/RENADE)",,no_cuantificado_por_jp,"Componente pensión recurrente. Lump-sum en episódicos.",Plan JP p. 64,true
+pension_reparaciones,100% comunidades con reparación colectiva,"Reparación colectiva: tierras, memoria",,no_cuantificado_por_jp,"Mayormente CAPEX en episódicos.",Plan JP p. 64,true
+cultura_recurrente,2000 proyectos culturales comunitarios al 2031,"Financiados por Fondo Nacional de Cultura",,nueva_institucion_sin_dotacion,"~S/ 200 M/año aproximado.",Plan JP p. 64,false
+cultura_recurrente,60% trabajadores culturales formalizados,"De ~30,119 trabajadores registrados (>80% informales actualmente)",,no_cuantificado_por_jp,"Subsidios y seguros laborales.",Plan JP p. 20,false
+cultura_recurrente,Sistema Nacional de Cultura Plurinacional,"Reforma del Ministerio de Cultura",,nueva_institucion_sin_dotacion,"Setup en episódicos, opex aquí.",Plan JP p. 19,true
+nuevas_instituciones_opex,Comisión Plurinacional de la Verdad y Justicia Transicional,"Nueva comisión para revisar casos 2022-2023 y profundizar CVR",,nueva_institucion_sin_dotacion,"Comisión multianual. Setup en episódicos.",Plan JP p. 19,true
+nuevas_instituciones_opex,Sistema Nacional de Justicia Transicional,"Marco institucional vinculante",,nueva_institucion_sin_dotacion,"Setup en episódicos.",Plan JP p. 64,true
+nuevas_instituciones_opex,Fondo Nacional de Reparaciones Integrales,"Opex del fondo (los pagos están en pension_reparaciones)",,nueva_institucion_sin_dotacion,"Setup en episódicos.",Plan JP p. 19,true
+nuevas_instituciones_opex,Instituto Nacional por la Empleabilidad,"Coordinación de orientación vocacional y empleabilidad juvenil",,nueva_institucion_sin_dotacion,"Setup en episódicos.",Plan JP p. 55,true
+nuevas_instituciones_opex,Consejo Nacional de Juventudes,"Reemplaza Secretaría Nacional de Juventudes",,nueva_institucion_sin_dotacion,"Reorganización institucional.",Plan JP p. 55,false
+nuevas_instituciones_opex,Instituto Nacional de Desarrollo Urbano y Ordenamiento Territorial,"Nueva entidad",,nueva_institucion_sin_dotacion,"Setup en episódicos.",Plan JP p. 33,true
+nuevas_instituciones_opex,Centro de Innovación Nacional (construcción/saneamiento),"Para zonas afectadas por heladas, friaje, inundaciones",,nueva_institucion_sin_dotacion,"Setup en episódicos.",Plan JP p. 34,true
+nuevas_instituciones_opex,Laboratorio Urbano Nacional,"Ideas para un urbanismo con justicia social",,nueva_institucion_sin_dotacion,"Setup en episódicos.",Plan JP p. 34,true
+nuevas_instituciones_opex,Unidad Especial Inteligencia Financiera y Ciberdelito,"Dentro de PNP para combatir extorsiones digitales",,nueva_institucion_sin_dotacion,"Setup en episódicos.",Plan JP p. 23,true
+nuevas_instituciones_opex,Veedurías ciudadanas sobre medios,"Para vigilar contenidos en radio y TV",,nueva_institucion_sin_dotacion,"Costo bajo.",Plan JP p. 12,false
+nuevas_instituciones_opex,Plataforma digital unificada denuncias,"Para denuncias ciudadanas y seguimiento",,nueva_institucion_sin_dotacion,"Setup tecnológico en episódicos.",Plan JP p. 23,true
+nuevas_instituciones_opex,Fondo de Agua,"Para conservación de ecosistemas productores de agua",,nueva_institucion_sin_dotacion,"Financiado por canon hídrico (ingreso).",Plan JP p. 45,false
+jovenes_otros,Reforma Política Nacional de Juventud,"Reformular política aprobada en 2019",,no_cuantificado_por_jp,"Reorganización institucional.",Plan JP p. 55,false
+jovenes_otros,Programa certificación y empleabilidad personas con discapacidad,"60% de personas con discapacidad en edad de trabajar no tienen empleo",,no_cuantificado_por_jp,"Subsidios + sistema 'Soy Capaz'.",Plan JP p. 56,false
+jovenes_otros,ESI (Educación Sexual Integral) reforzada,"En toda la comunidad educativa para reducir embarazo adolescente",,no_cuantificado_por_jp,"Programa educativo, mayormente dentro de educacion_6pbi.",Plan JP p. 56,false
+jovenes_otros,Servicios salud mental comunitaria,"Vinculados a psicólogos en instituciones educativas",,no_cuantificado_por_jp,"Cruza con salud_8pbi.",Plan JP p. 56,false

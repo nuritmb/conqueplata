@@ -1,0 +1,14 @@
+item_id,componente,monto_millones_pen,porcentaje_del_total,fuente_cita,fuente_url
+evasion_total,Evasión del IGV,34669,35,"SUNAT Informe N° 000035-2024 (junio 2024): incumplimiento IGV 2023 = S/ 34,669 M = 3.5% PBI",https://www.sunat.gob.pe/
+evasion_total,Evasión del Impuesto a la Renta,64331,65,"Derivado: total OCDE/MEF (10% PBI) menos IGV SUNAT. Incumplimiento del IR Tercera Categoría estimado en 40.5%.",https://www.oecd.org/es/publications/estudios-economicos-de-la-ocde-peru-2025_626594d0-es.html
+exoneraciones_regresivas,IGV (agro, Amazonía, otros),14800,74,MEF MMM 2026-2029: gasto tributario IGV = 74% del total,
+exoneraciones_regresivas,Impuesto a la Renta (CTS protegido aparte),3360,17,MEF MMM 2026-2029: gasto tributario IR = 17% del total,
+exoneraciones_regresivas,Ad valorem y otros,980,5,MEF MMM 2026-2029: gasto tributario ad valorem = 5% del total,
+exoneraciones_regresivas,Otros mecanismos,860,4,MEF MMM 2026-2029,
+mineria_mas40,Impuesto a la Renta minero,10632,58,"Comex Perú/SUNAT 2024: 58% del fiscal minero corresponde a IR de 3ra categoría",https://www.comexperu.org.pe/articulo/mineria-en-2024-mayor-recaudacion-e-inversion-y-desafios-por-superar
+mineria_mas40,Regalías mineras,2187,12,SUNAT 2024,
+mineria_mas40,IEM (Impuesto Especial a la Minería),1233,7,MEF Análisis del Rendimiento de los Tributos 2023,
+mineria_mas40,GEM (Gravamen Especial a la Minería),56,0.3,MEF Análisis del Rendimiento de los Tributos 2023,
+mineria_mas40,Otros (NRM y derechos de vigencia),4276,23,SUNAT 2024,
+regalias_mas20,Regalías mineras,2187,49,SUNAT 2024,
+regalias_mas20,Regalías hidrocarburos,2300,51,"Estimado a partir de transferencias canon gas Camisea (Perúpetro)",

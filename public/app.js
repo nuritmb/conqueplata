@@ -309,20 +309,29 @@ function renderCircles(ingresos, gastos) {
   // Outer (larger) circle
   if (rMax > 0) {
     const isIngresoOuter = rIng >= rGas;
-    const outer = circle(CENTER, CENTER, rMax, isIngresoOuter ? 'balance-circle-ingreso' : 'balance-circle-gasto');
-    attachBalanceHover(outer, isIngresoOuter, isIngresoOuter ? ingresos : gastos);
-    balanceLayer.appendChild(outer);
+    appendBalancePair(balanceLayer, rMax, isIngresoOuter, isIngresoOuter ? ingresos : gastos);
   }
   // Inner (smaller) circle, drawn on top
   if (rMin > 0) {
     const isIngresoInner = rGas > rIng; // if ingreso is smaller, ingreso is inner
-    const inner = circle(CENTER, CENTER, rMin, isIngresoInner ? 'balance-circle-ingreso' : 'balance-circle-gasto');
-    attachBalanceHover(inner, isIngresoInner, isIngresoInner ? ingresos : gastos);
-    balanceLayer.appendChild(inner);
+    appendBalancePair(balanceLayer, rMin, isIngresoInner, isIngresoInner ? ingresos : gastos);
   }
 
   // Render reference circles (background)
   renderReferences();
+}
+
+function appendBalancePair(layer, r, isIngreso, value) {
+  const visClass = isIngreso ? 'balance-circle-ingreso' : 'balance-circle-gasto';
+  const visual = circle(CENTER, CENTER, r, visClass);
+  const hit = circle(CENTER, CENTER, r, 'balance-hit');
+  attachHoverPair(hit, visual, () => showTooltip(
+    isIngreso ? 'Ingresos activados' : 'Gastos activados',
+    value,
+    isIngreso ? 'Total de reformas tributarias prendidas' : 'Total de compromisos de gasto prendidos'
+  ));
+  layer.appendChild(visual);
+  layer.appendChild(hit);
 }
 
 function renderReferences() {
@@ -338,10 +347,12 @@ function renderReferences() {
     if (r === 0) return;
     const isComposite = ref.id === 'tres_empresas_utilidad';
     const cls = 'reference-circle' + (isComposite ? ' is-composite' : '');
-    const c = circle(CENTER, CENTER, r, cls);
-    c.dataset.refId = ref.id;
-    attachReferenceHover(c, ref);
-    layer.appendChild(c);
+    const visual = circle(CENTER, CENTER, r, cls);
+    visual.dataset.refId = ref.id;
+    const hit = circle(CENTER, CENTER, r, 'reference-hit');
+    attachHoverPair(hit, visual, () => showTooltip(ref.etiqueta, ref.monto_anual_millones_pen, ref.subetiqueta));
+    layer.appendChild(visual);
+    layer.appendChild(hit);
   });
 }
 
@@ -358,22 +369,52 @@ function hideTooltip() {
   document.getElementById('circle-tooltip').style.opacity = '0';
 }
 
-function attachReferenceHover(circleEl, ref) {
-  circleEl.addEventListener('mouseenter', () => {
-    showTooltip(ref.etiqueta, ref.monto_anual_millones_pen, ref.subetiqueta);
-  });
-  circleEl.addEventListener('mouseleave', hideTooltip);
+// Sticky-tooltip state: when a user TAPS a circle, the tooltip persists until they tap elsewhere.
+// This is necessary because on touch devices `mouseleave` is unreliable.
+let stickyHoverEl = null;
+
+function clearSticky() {
+  if (stickyHoverEl) {
+    stickyHoverEl.classList.remove('is-hovered');
+    stickyHoverEl = null;
+  }
+  hideTooltip();
 }
 
-function attachBalanceHover(circleEl, isIngreso, value) {
-  circleEl.addEventListener('mouseenter', () => {
-    showTooltip(
-      isIngreso ? 'Ingresos activados' : 'Gastos activados',
-      value,
-      isIngreso ? 'Total de reformas tributarias prendidas' : 'Total de compromisos de gasto prendidos'
-    );
+// Dismiss sticky tooltip when tapping anywhere that isn't a circle.
+document.addEventListener('click', (e) => {
+  if (e.target.closest('.reference-hit, .balance-hit')) return;
+  clearSticky();
+});
+
+// Attach hover behavior: hit circle catches mouse, visual circle gets highlighted.
+// On desktop: hover shows tooltip, mouseleave hides it (unless sticky).
+// On mobile: tap shows tooltip sticky; tap outside dismisses.
+function attachHoverPair(hitEl, visualEl, onEnter) {
+  hitEl.addEventListener('mouseenter', () => {
+    visualEl.classList.add('is-hovered');
+    onEnter();
   });
-  circleEl.addEventListener('mouseleave', hideTooltip);
+  hitEl.addEventListener('mouseleave', () => {
+    if (stickyHoverEl === visualEl) return;  // sticky from a tap — don't auto-hide
+    visualEl.classList.remove('is-hovered');
+    hideTooltip();
+  });
+  hitEl.addEventListener('click', (e) => {
+    e.stopPropagation();
+    // Clear any previously-sticky element
+    if (stickyHoverEl && stickyHoverEl !== visualEl) {
+      stickyHoverEl.classList.remove('is-hovered');
+    }
+    // Toggle: if already sticky on this one, dismiss
+    if (stickyHoverEl === visualEl) {
+      clearSticky();
+      return;
+    }
+    visualEl.classList.add('is-hovered');
+    stickyHoverEl = visualEl;
+    onEnter();
+  });
 }
 
 function renderReferencesLegend() {

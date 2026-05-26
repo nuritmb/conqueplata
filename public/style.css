@@ -162,7 +162,13 @@ body {
 
 /* SVG */
 #circles-svg {
-  max-height: 540px;
+  max-height: 380px;
+}
+
+@media (min-width: 768px) {
+  #circles-svg {
+    max-height: 540px;
+  }
 }
 
 .reference-circle {
@@ -171,12 +177,11 @@ body {
   stroke-width: 1;
   stroke-dasharray: 2 3;
   opacity: 0.55;
-  pointer-events: stroke;
-  cursor: pointer;
+  pointer-events: none;  /* events handled by .reference-hit */
   transition: stroke 120ms ease, stroke-width 120ms ease, opacity 120ms ease;
 }
 
-.reference-circle:hover {
+.reference-circle.is-hovered {
   stroke: #1c1917;
   stroke-width: 2.5;
   stroke-dasharray: none;
@@ -189,10 +194,20 @@ body {
   stroke-dasharray: 6 3;
 }
 
-.reference-circle.is-composite:hover {
+.reference-circle.is-composite.is-hovered {
   stroke: #1c1917;
   stroke-width: 2.5;
   stroke-dasharray: none;
+}
+
+/* Invisible "hit ring" — wider stroke that catches mouse events. */
+.reference-hit,
+.balance-hit {
+  fill: none;
+  stroke: transparent;
+  stroke-width: 22;  /* generous catch area on either side of the visual ring */
+  pointer-events: stroke;
+  cursor: pointer;
 }
 
 .reference-label {
@@ -202,14 +217,14 @@ body {
 
 .balance-circle-ingreso,
 .balance-circle-gasto {
-  cursor: pointer;
+  pointer-events: none;  /* events handled by .balance-hit */
 }
 
-.balance-circle-ingreso:hover {
+.balance-circle-ingreso.is-hovered {
   fill: rgba(16, 185, 129, 0.32);
 }
 
-.balance-circle-gasto:hover {
+.balance-circle-gasto.is-hovered {
   fill: rgba(244, 63, 94, 0.36);
 }
 

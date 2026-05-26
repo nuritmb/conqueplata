@@ -1538,7 +1538,7 @@
         "url": "https://www.credicorp.com/inversionistas/informacion-financiera"
       },
       "color_sugerido": "gris_claro",
-      "siempre_visible": true
+      "siempre_visible": false
     },
     {
       "id": "cerro_verde_utilidad",
@@ -1550,7 +1550,7 @@
         "url": "https://www.cerroverde.pe/"
       },
       "color_sugerido": "gris_claro",
-      "siempre_visible": true
+      "siempre_visible": false
     },
     {
       "id": "backus_utilidad",
@@ -1562,15 +1562,39 @@
         "url": "https://www.backus.pe/"
       },
       "color_sugerido": "gris_claro",
-      "siempre_visible": true
+      "siempre_visible": false
     },
     {
       "id": "tres_empresas_utilidad",
-      "etiqueta": "Utilidades combinadas: Credicorp + Cerro Verde + Backus",
-      "subetiqueta": "Lo que ganan en un año las tres empresas juntas — 2024",
+      "etiqueta": "Ganancia neta combinada de Credicorp + Cerro Verde + Backus",
+      "subetiqueta": "Lo que estas tres empresas peruanas dejan a sus accionistas cada año, después de pagar todos los costos, sueldos e impuestos — 2024",
       "monto_anual_millones_pen": 11200.0,
       "fuente": {
-        "cita": "Suma de memorias anuales 2024",
+        "cita": "Suma de memorias anuales 2024 (Credicorp + Cerro Verde + Backus AB InBev)",
+        "url": null
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": false
+    },
+    {
+      "id": "mineria_sector_utilidad",
+      "etiqueta": "Ganancia neta del sector minero formal",
+      "subetiqueta": "Lo que las grandes mineras dejan a sus accionistas en un año, después de pagar todos los costos, sueldos e impuestos — promedio 2023-2024",
+      "monto_anual_millones_pen": 15000.0,
+      "fuente": {
+        "cita": "Rumbo Minero / Prensa Regional, basado en reportes financieros 2024: utilidad neta agregada US$ 3,634 M en 2024 (Southern, Cerro Verde, Buenaventura concentran 85%)",
+        "url": "https://www.rumbominero.com/peru/noticias/mineria/tres-mineras-concentran-85-de-utilidades-reportadas-en-2025/"
+      },
+      "color_sugerido": "gris_claro",
+      "siempre_visible": true
+    },
+    {
+      "id": "bvl_empresas_utilidad",
+      "etiqueta": "Ganancia neta combinada de las grandes empresas peruanas (BVL)",
+      "subetiqueta": "Estimación de lo que las principales empresas listadas en la Bolsa de Valores de Lima dejan a sus accionistas en un año — 2024",
+      "monto_anual_millones_pen": 40000.0,
+      "fuente": {
+        "cita": "Estimación propia: agregación sectorial (financiero ~S/ 18B, minería ~S/ 15B, consumo + telecom + otros ~S/ 7B) basada en memorias 2024 individuales",
         "url": null
       },
       "color_sugerido": "gris_claro",

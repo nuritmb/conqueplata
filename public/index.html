@@ -10,13 +10,13 @@
 <body class="bg-stone-50 text-stone-900 font-sans antialiased">
 
 <header class="border-b border-stone-200 bg-white">
-  <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+  <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-y-2">
     <div>
       <h1 class="text-lg font-semibold">¿Alcanza la plata?</h1>
       <p class="text-xs text-stone-500">Calculador del Plan de Gobierno · Juntos por el Perú 2026-2031</p>
     </div>
-    <nav class="flex gap-2 text-sm">
-      <button data-tab="balance" class="tab-btn px-3 py-1.5 rounded bg-stone-900 text-white">Balance anual</button>
+    <nav class="flex flex-wrap gap-2 text-sm">
+      <button data-tab="balance" class="tab-btn px-3 py-1.5 rounded bg-stone-900 text-white">El cálculo</button>
       <button data-tab="inversiones" class="tab-btn px-3 py-1.5 rounded text-stone-700 hover:bg-stone-100">Inversiones de capital</button>
       <button data-tab="metodologia" class="tab-btn px-3 py-1.5 rounded text-stone-700 hover:bg-stone-100">Metodología</button>
     </nav>
@@ -24,10 +24,20 @@
 </header>
 
 <!-- ============ TAB: BALANCE ANUAL ============ -->
-<main id="tab-balance" class="tab-content max-w-7xl mx-auto px-4 py-6 grid grid-cols-12 gap-4">
+<main id="tab-balance" class="tab-content max-w-7xl mx-auto px-4 py-6 grid grid-cols-1 md:grid-cols-12 gap-4">
 
-  <!-- LEFT: Ingresos -->
-  <section class="col-span-3 space-y-3">
+  <!-- INTRO -->
+  <section class="md:col-span-12 max-w-3xl text-sm text-stone-700 leading-relaxed mb-2 order-1">
+    <p>
+      Muchos se preguntan con qué plata JP va a financiar las reformas que promete. Acá puedes verlo tú mismo.
+      En la columna izquierda, <strong class="text-emerald-700">Ingresos</strong>, elige una o varias fuentes de dinero <em>adicional</em> que el gobierno podría recaudar cada año.
+      En la columna derecha, <strong class="text-rose-700">Gastos</strong>, elige uno o varios compromisos de gasto que JP ha propuesto.
+      Entre las dos columnas, la visualización muestra cómo se comparan ambos montos, junto con cifras referenciales para darte una idea de la escala.
+    </p>
+  </section>
+
+  <!-- LEFT (desktop) / 3rd (mobile): Ingresos -->
+  <section class="md:col-span-3 space-y-3 order-3 md:order-2">
     <div class="flex items-baseline justify-between">
       <h2 class="text-sm font-bold uppercase tracking-wide text-emerald-700">Ingresos</h2>
       <span id="ingresos-total" class="text-xs text-stone-500 tabular-nums">S/ 0</span>
@@ -35,13 +45,15 @@
     <div id="ingresos-container" class="space-y-3"></div>
   </section>
 
-  <!-- CENTER: Visualization -->
-  <section class="col-span-6 flex flex-col items-center">
+  <!-- CENTER (desktop) / 2nd (mobile): Visualization -->
+  <section class="md:col-span-6 flex flex-col items-center order-2 md:order-3">
     <div class="w-full relative" id="circles-container">
-      <div id="circle-tooltip" class="absolute top-2 left-1/2 -translate-x-1/2 z-10 bg-stone-900/90 text-white text-xs px-3 py-1.5 rounded-md opacity-0 pointer-events-none transition-opacity duration-150 whitespace-nowrap shadow-lg">
-        <span id="tooltip-name" class="font-semibold"></span>
-        <span class="text-stone-300 mx-1">·</span>
-        <span id="tooltip-value" class="tabular-nums"></span>
+      <div id="circle-tooltip" class="absolute top-2 left-1/2 -translate-x-1/2 z-10 bg-stone-900/90 text-white text-xs px-3 py-1.5 rounded-md opacity-0 pointer-events-none transition-opacity duration-150 shadow-lg max-w-md text-center">
+        <div class="whitespace-nowrap">
+          <span id="tooltip-name" class="font-semibold"></span>
+          <span class="text-stone-300 mx-1">·</span>
+          <span id="tooltip-value" class="tabular-nums"></span>
+        </div>
         <div id="tooltip-sub" class="text-[10px] text-stone-300 font-normal mt-0.5"></div>
       </div>
       <svg id="circles-svg" viewBox="0 0 600 600" class="w-full h-auto">
@@ -72,8 +84,8 @@
     <div id="references-legend" class="w-full mt-4 text-xs"></div>
   </section>
 
-  <!-- RIGHT: Gastos -->
-  <section class="col-span-3 space-y-3">
+  <!-- RIGHT (desktop) / 4th (mobile): Gastos -->
+  <section class="md:col-span-3 space-y-3 order-4">
     <div class="flex items-baseline justify-between">
       <h2 class="text-sm font-bold uppercase tracking-wide text-rose-700">Gastos</h2>
       <span id="gastos-total" class="text-xs text-stone-500 tabular-nums">S/ 0</span>

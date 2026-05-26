@@ -274,7 +274,7 @@ function recompute() {
   balanceEl.textContent = 'S/ ' + formatM(Math.abs(balance)) + ' M';
   signEl.textContent = balance < 0 ? '−' : (balance > 0 ? '+' : '');
   if (balance < 0) {
-    balanceEl.className = 'text-amber-600';
+    balanceEl.className = 'text-rose-600';
     labelEl.textContent = 'Déficit anual del plan';
   } else if (balance > 0) {
     balanceEl.className = 'text-emerald-600';
